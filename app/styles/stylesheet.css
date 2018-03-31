@@ -6,8 +6,49 @@ html {
 body {
     margin: 0;
     font-size: 16px;
+    background-color: rgb(243, 243, 243);
+}
+
+.page-content {
+    margin: 0 auto;
+    padding: 30px;
+    padding-top: 60px;
+    max-width: 992px;
+}
+
+.row {
+    width: 100%;
+    background-color: #fff;
+}
+
+.section {
+    margin-bottom: 20px;
 }
 
 .right {
     float: right !important;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.default-button {
+    border: none;
+    border-radius: 2px;
+    display: inline-block;
+    width: 218px;
+    height: 36px;
+    line-height: 36px;
+    padding: 0 16px;
+    text-transform: uppercase;
+    font-size: 14px;
+    background-color: rgb(54, 131, 233);
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    letter-spacing: .5px;
+    cursor: pointer;
 }

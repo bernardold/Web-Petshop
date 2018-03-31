@@ -1,9 +1,5 @@
 /* Navigation Bar */
 
-.navigation-bar {
-    margin-bottom: 60px;
-}
-
 .navigation-bar nav {
     /*overflow: auto;*/
     display: block;
