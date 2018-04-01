@@ -2,65 +2,106 @@
     <head>
         <link rel="stylesheet" type="text/css" href="styles/stylesheet.css"/>
         <link rel="stylesheet" type="text/css" href="styles/navigation.css"/>
+        <link rel="stylesheet" type="text/css" href="styles/footer.css"/>
     </head>
     <body>
         <div class="row">
-            <div class="navigation-bar">
+            <div id="navigation-bar">
                 <nav>
-                    <div class="nav-wrapper">
-                        <a href="index.html" class="brand-logo"><img class="logo-img" src="images/logo.png"/></a>
-                        <ul id="nav" class="right">
-                            <li><a href="store.html">Loja</a></li>
-                            <li><a href="services.html">Cuidados</a></li>
-                            <li><a href="mypets.html">Meus Pets</a></li>
-                            <li><a href="management.html">Gerenciar</a></li>
-                            <li><a href="account.html">Usuário</a></li>
-                            <li><a href="#"><img class="cart-icon" src="images/cart-icon.png"/></a></li>
-                        </ul>
+                    <div class="page-constraint">
+                        <div class="nav-wrapper">
+                            <a href="index.html" class="brand-logo"><img class="logo-img" src="images/logo.png"/></a>
+                            <ul id="nav" class="right">
+                                <li><a href="store.html">Loja</a></li>
+                                <li><a href="services.html">Cuidados</a></li>
+                                <li><a href="mypets.html">Meus Pets</a></li>
+                                <li><a href="management.html">Gerenciar</a></li>
+                                <li><a href="account.html">Usuário</a></li>
+                                <li><a href="#"><img class="cart-icon" src="images/cart-icon.png"/></a></li>
+                            </ul>
+                        </div>
                     </div>
                 </nav>
             </div>
         </div>
         <div class="row">
-            
-            <div class="page-content">
-    
-                <div class="section">
-                    <div class="for-your-pet">
-                        <h2> Para o seu Pet </h2>
-                        <p> 
-                            Desde a saúde ao bem-estar e lazer, oferecemos o melhor para o seu pet. É felicidade ao seu pet e 
-                            tranquilidade para você.
+            <div id="page-content">
+                <div class="page-constraint">
+                    <div class="section">
+                        <div class="for-your-pet">
+                            <h2> Para o seu Pet </h2>
+                            <p> 
+                                Desde a saúde ao bem-estar e lazer, oferecemos o melhor para o seu pet. É felicidade ao seu pet e 
+                                tranquilidade para você.
+                                <br/>
+                                Através do seu cadastro você pode cadastrar todos os seus pets e manter uma lista deles para facilitar
+                                o processo de agendamento de um cuidado.
+                            </p>
+                            <img class="animals-banner" src="images/animals-banner.jpg"/>
+                        </div>
+                        <hr/>
+                    </div>
+                    <div class="section">
+                        <div class="services-presentation clearfix">
+                            <h2> Cuidados </h2>
+                            <div class="services-img left">
+                                <img class="animals-care" src="images/animals-care.png"/>
+                            </div>
+                            <div class="services-text">
+                                <p>
+                                    Temos várias maneiras de cuidar do seu pet. Aqui você tem uma interface facilitada para agendar
+                                    serviços de tosa, vacinação e banho. Pode escolher o horário em uma agenda sempre atualizada e com
+                                    auxílio da sua lista de pets, já escolher quem vai receber o cuidado.
+                                    <br/>
+                                    Nossa equipe é preprada para dar o conforto e bem-estar necessário ao seu pet. E o mais importante:
+                                    Somos todos apaixonados por animais.
+                                </p>
+                            </div>
+                            <a href="services.html" class="default-button bottom-right">Agendar um cuidado</a>
+                        </div>
+                        <hr/>
+                    </div>
+                    <div class="section">
+                        <div class="store-presentation clearfix">
+                            <h2> Loja </h2>
+                            <div class="store-img left">
+                                <img src="images/cat-shopping.png"/>
+                            </div>
+                            <div class="store-text">
+                                <p>
+                                    O cuidado continua em casa. Nós vendemos uma grande variedade de acessórios para o seu pet. Nossa loja
+                                    conta com rações, produtos de higiene, acessórios de alimentação, gaiolas, aquários, transportadores e
+                                    e muito mais. Visite a loja e se surpreenda.
+                                </p>
+                            </div>
+                            <a href="store.html" class="default-button bottom-right">Visitar loja</a>
+                        </div>
+                        <hr/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div id="footer">
+                <div class="upper">
+                    <b>Pet-Shop</b>
+                    <div class="page-constraint clearfix">
+                        <div class="address">
+                            <b>Endereço</b>
                             <br/>
-                            Através do seu cadastro você pode cadastrar todos os seus pets e manter uma lista deles para facilitar
-                            o processo de agendamento de um cuidado.
-                        </p>
+                            R. Endereço Fictício - s/n
+                            <br/>
+                            São Carlos / SP
+                        </div>
+                        <div class="contact">
+                            <b>Contato</b>
+                            <br/>
+                            contato@petshop.com.br
+                        </div>
                     </div>
-                    <hr/>
                 </div>
-                <div class="section">
-                    <div class="services-presentation clearfix">
-                        <h2> Cuidados </h2>
-                        <p>
-                            Temos várias maneiras de cuidar do seu pet. Aqui você tem uma interface facilitada para agendar
-                            serviços de tosa, vacinação e banho. Pode escolher o horário em uma agenda sempre atualizada e com
-                            auxílio da sua lista de pets, já escolher quem vai receber o cuidado.
-                        </p>
-                        <a href="services.html" class="default-button right">Agendar um cuidado</a>
-                    </div>
-                    <hr/>
-                </div>
-                <div class="section">
-                    <div class="store-presentation clearfix">
-                        <h2> Loja </h2>
-                        <p>
-                            O cuidado continua em casa. Nós vendemos uma grande variedade de acessórios para o seu pet. Nossa loja
-                            conta com rações, produtos de higiene, acessórios de alimentação, gaiolas, aquários, transportadores e
-                            e muito mais. Visite a loja e se surpreenda.
-                        </p>
-                        <a href="store.html" class="default-button right">Visitar loja</a>
-                    </div>
-                    <hr/>
+                <div class="lower">
+                    <b>2018 - SSC0219 Introdução ao Desenvolvimento Web - Grupo 2</b>
                 </div>
             </div>
         </div>

@@ -1,0 +1,21 @@
+#footer {
+    text-align: center;
+    color: white;
+}
+
+#footer .upper {
+    padding: 16px;
+    background-color: #5f5c5d;
+}
+
+#footer .upper .address, #footer .upper .contact {
+    float: left;
+    width: 50%;
+    font-size: 12px;
+}
+
+ #footer .lower {
+     padding: 16px;
+     background-color: #444243;
+     font-size: 10px;
+ }

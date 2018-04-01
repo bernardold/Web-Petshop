@@ -1,13 +1,16 @@
 /* Navigation Bar */
 
-.navigation-bar nav {
-    /*overflow: auto;*/
+#navigation-bar {
     display: block;
     width: 100%;
     background-color: rgb(54, 131, 233);
     color: #fff;
     height: 64px;
     line-height: 64px;
+}
+
+#navigation-bar nav {
+    padding: 0 14px;
 }
 
 nav a {
