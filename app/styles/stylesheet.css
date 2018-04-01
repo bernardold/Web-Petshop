@@ -69,3 +69,26 @@ body {
     letter-spacing: .5px;
     cursor: pointer;
 }
+
+.card {
+    padding: 20px;
+    border: 1px solid #e7e7e7;
+    border-radius: 8px;
+    margin: 15px 0 15px 12px;
+}
+.card:hover {
+    border-color: rgb(54, 131, 233);
+}
+
+.price > h1.value {
+    color:  rgb(54, 131, 233);
+    font-weight: 900;
+    letter-spacing: -2px;
+    margin-bottom: 0;
+}
+.price p.installments {
+    text-transform: uppercase;
+    color: grey;
+    font-size: 12px;
+    margin: 0
+}
