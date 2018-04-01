@@ -1,0 +1,28 @@
+
+.for-your-pet .animals-banner {
+    width: 100%;
+}
+
+.services-presentation {
+    position: relative;
+}
+
+.services-presentation .services-img {
+    height: 150px;
+    margin-right: 30px;
+}
+.services-presentation .services-img img {
+    height: 100%;
+}
+
+.store-presentation {
+    position: relative;
+}
+
+.store-presentation .store-img {
+    height: 150px;
+    margin-right: 30px;
+}
+.store-presentation .store-img img {
+    height: 100%;
+}
