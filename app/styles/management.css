@@ -1,0 +1,27 @@
+
+.management-list {
+    margin-bottom: 30px;
+}
+
+.management-list .manageable-item {
+    padding: 16px;
+    border-radius: 10px;
+}
+
+.management-list .manageable-item:hover {
+    background-color: rgb(217, 224, 233);
+}
+
+.management-list .manageable-item h4 {
+    display: inline-block;
+}
+
+.management-list .manageable-item .item-description {
+    padding: 22px 30px;
+    font-size: 12px;
+    color: grey;
+}
+
+.management-list .manageable-item .default-button {
+    margin-top: 12px;
+}
