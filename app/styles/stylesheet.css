@@ -54,7 +54,7 @@ body {
 
 .default-button {
     border: none;
-    border-radius: 2px;
+    border-radius: 5px;
     display: inline-block;
     width: 218px;
     height: 36px;
@@ -68,6 +68,9 @@ body {
     text-align: center;
     letter-spacing: .5px;
     cursor: pointer;
+}
+.default-button.danger {
+    background-color: rgb(204, 3, 3);
 }
 
 .item-card {

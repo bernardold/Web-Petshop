@@ -25,3 +25,46 @@
 .management-list .manageable-item .default-button {
     margin-top: 12px;
 }
+
+h2.title-action {
+    display: inline-block
+}
+h2.title-action+.action-title {
+    margin-top: 20px;
+}
+
+.manage-users-list {
+    margin: 20px 0;
+}
+
+.manage-users-list .manageable-user {
+    padding: 0 30px;
+    border-radius: 10px
+}
+
+.manage-users-list .manageable-user:hover h4 {
+    text-decoration: underline;
+}
+
+.manage-users-list .manageable-user h4 {
+    display:inline-block;
+}
+
+.manage-users-list .manageable-user .user-role {
+    display: inline-block;
+    padding: 22px 30px;
+    font-size: 12px;
+    color: grey;
+}
+
+.manage-users-list .manageable-user .actions button {
+    margin-top: 15px;
+}
+
+.manage-users-list .manageable-user .actions button {
+    width: auto;
+}
+
+.manage-users-list .manageable-user .actions button.danger {
+    margin-left: 5px;
+}
