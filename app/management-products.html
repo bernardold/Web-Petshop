@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt">
     <head>
         <link rel="stylesheet" type="text/css" href="styles/stylesheet.css"/>
         <link rel="stylesheet" type="text/css" href="styles/management.css"/>
         <link rel="stylesheet" type="text/css" href="styles/navigation.css"/>
         <link rel="stylesheet" type="text/css" href="styles/footer.css"/>
+        <link rel="stylesheet" type="text/css" href="styles/fontawesome-all.css"/>
+        <meta charset="UTF-8">
         <title>Pet-Shop - Admin - Gerência</title>
     </head>
     <body>
@@ -17,6 +19,7 @@
                             <ul id="nav" class="right">
                                 <li><a href="store.html">Loja</a></li>
                                 <li><a href="services.html">Cuidados</a></li>
+                                <li><a href="calendar.html">Calendário</a></li>
                                 <li class="active"><a href="management.html">Administrar</a></li>
                                 <li><a href="account.html">Rafael</a></li>
                                 <li><a href="shopping-cart.html"><img class="cart-icon" src="images/cart-icon.png"/></a></li>
@@ -32,6 +35,10 @@
                 
                     <h2 class="title-action">Administrar Produtos da Loja</h2>
                     <button class="default-button action-title right">Adicionar</button>
+                    <div class ="search-bar">
+                        <input class ="search-field" type="text" name="produto" placeholder="Pesquisar"/> 
+                        <button><i class="fa fa-search" ></i></button>
+                    </div>
                     <div class="manage-product-list">
 
                         <div class="manageable-product clearfix">
