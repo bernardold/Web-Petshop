@@ -4,7 +4,6 @@ Trabalho para a disciplina SSC-219 Introdução ao Desenvolvimento Web do Instit
 
 ## Membros
 + Bernardo Simões Lage Gomes Duarte (8598861)
-+ Gabriel Luiz Ferraz Souto (8936993)
 + Giovani Ortolani Barbosa (8936648)
 + Jorge Luiz da Silva Vilaça (9066491)
 

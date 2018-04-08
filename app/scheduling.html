@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <link rel="stylesheet" type="text/css" href="styles/stylesheet.css"/>
+        <link rel="stylesheet" type="text/css" href="styles/navigation.css"/>
+        <link rel="stylesheet" type="text/css" href="styles/scheduling.css"/>
+        <link rel="stylesheet" type="text/css" href="styles/footer.css"/>
+        <meta charset="UTF-8">
+        <title>Pet-Shop - Agendamento</title>
+    </head>
+    <body>
+        <div class="row">
+            <div id="navigation-bar">
+                <nav>
+                    <div class="page-constraint">
+                        <div class="nav-wrapper">
+                            <a href="index.html" class="brand-logo"><img class="logo-img" src="images/logo.png"/></a>
+                            <ul id="nav" class="right">
+                                <li><a href="store.html">Loja</a></li>
+                                <li><a href="services.html">Cuidados</a></li>
+                                <li class="active"><a href="scheduling.html">Agendamento</a></li>
+                                <li><a href="management.html">Administrar</a></li>
+                                <li><a href="account.html">Rafael</a></li>
+                                <li><a href="shopping-cart.html"><img class="cart-icon" src="images/cart-icon.png"/></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <div class="row">
+            <div id="page-content">
+                <div class="page-constraint">
+                    <div class="section">
+                        <div class="for-your-pet">
+                            <h2> Calendário de Serviços </h2>
+                            <p> 
+                                Veja os horários disponíveis para agendar os serviços de seu interesse para seu pet.
+                            </p>
+                        </div>
+                        <hr/>
+                    </div>
+                    <div class="section cal-section center">
+                        <div class="cal left">
+                          <table class="cal-table">
+                            <caption class="cal-caption">
+                              <a class="prev">&laquo;</a>
+                              <a class="next">&raquo;</a>
+                              Abril 2018
+                            </caption>
+                            <tbody class="cal-body">
+                              <tr>
+                                <td class="cal-off"><span>31<span></td>
+                                <td><span>1<span></td>
+                                <td><span>2<span></td>
+                                <td class="cal-today"><span>3<span></td>
+                                <td><span>4<span></td>
+                                <td><span>5<span></td>
+                                <td><span>6<span></td>
+                              </tr>
+                              <tr>
+                                <td><span>7<span></td>
+                                <td class="cal-selected"><span>8<span></td>
+                                <td><span>9<span></td>
+                                <td class="cal-check"><span>10<span></td>
+                                <td><span>11<span></td>
+                                <td><span>12<span></td>
+                                <td><span>13<span></td>
+                              </tr>
+                              <tr>
+                                <td><span>14<span></td>
+                                <td><span>15<span></td>
+                                <td><span>16<span></td>
+                                <td><span>17<span></td>
+                                <td><span>18<span></td>
+                                <td><span>19<span></td>
+                                <td><span>20<span></td>
+                              </tr>
+                              <tr>
+                                <td><span>21<span></td>
+                                <td><span>22<span></td>
+                                <td><span>23<span></td>
+                                <td><span>24<span></td>
+                                <td><span>25<span></td>
+                                <td><span>26<span></td>
+                                <td><span>27<span></td>
+                              </tr>
+                              <tr>
+                                <td><span>28<span></td>
+                                <td><span>29<span></td>
+                                <td><span>30<span></td>
+                                <td class="cal-off"><span>1<span></td>
+                                <td class="cal-off"><span>2<span></td>
+                                <td class="cal-off"><span>3<span></td>
+                                <td class="cal-off"><span>4<span></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <div>
+                            <button class="default-button schedule-service-button right">Agendar</button>
+                        </div>
+                        <div class="service-fields">
+                            <div class="label">Serviço</div>
+                            <div>
+                                <select name="servico" required>
+                                    <option value="banho_tosa_cao">Banho + Tosa - Cães</option>
+                                    <option value="banho_tosa_gato">Banho + Tosa - Gato</option>
+                                    <option value="atendimento">Atendimento veterinário - Geral</option>
+                                    <option value="vacinacao">Vacinação</option>
+                                </select> 
+                            </div>
+                            <br>
+                            <div class="label">Pet</div>
+                            <div>
+                                <select name="pet" required>
+                                    <option value="Nina">Nina</option>
+                                    <option value="Orley">Orley</option>
+                                    <option value="Jonatas">Jonatas</option>
+                                    <option value="Julinho">Julinho</option>
+                                    <option value="Hantaro">Hantaro</option>
+                                </select>
+                            </div>   
+                            <br> 
+                            <div class="label">Horário</div>
+                            <div> 
+                                <select name="horario" required>
+                                    <option value="9">9:00 - 10:00</option>
+                                    <option value="13">13:00 - 14:00</option>
+                                    <option value="14">14:00 - 15:00</option>
+                                </select>     
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-card scheduling-info clearfix">
+                        <div class="pet-scheduling-info left">
+                            <h3> 8 de Abril de 2018 </h3>
+                            <div class="info">
+                                <div class="label">Nome</div>
+                                <div class="value">Nina</div>
+                            </div>
+                            <div class="info">
+                                <div class="label">Serviço:</div>
+                                <div class="value">Banho + Tosa (10:00 - 11:00)</div>
+                                <div class="value">Vacinação (11:00 - 11:15)</div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr/>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div id="footer">
+                <div class="upper">
+                    <b>Pet-Shop</b>
+                    <div class="page-constraint clearfix">
+                        <div class="address">
+                            <b>Endereço</b>
+                            <br/>
+                            R. Endereço Fictício - s/n
+                            <br/>
+                            São Carlos / SP
+                        </div>
+                        <div class="contact">
+                            <b>Contato</b>
+                            <br/>
+                            contato@petshop.com.br
+                        </div>
+                    </div>
+                </div>
+                <div class="lower">
+                    <b>2018 - SSC0219 Introdução ao Desenvolvimento Web - Grupo 2</b>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
