@@ -6,9 +6,15 @@ Trabalho para a disciplina SSC-219 Introdução ao Desenvolvimento Web do Instit
 + Bernardo Simões Lage Gomes Duarte (8598861)
 + Giovani Ortolani Barbosa (8936648)
 + Jorge Luiz da Silva Vilaça (9066491)
++ Nicolas Bassetto Leite (8937292)
 
 ## Proposta
 
 Construção de aplicação web para uma Petshop. A loja do cliente vende pets, acessórios, além de serviços (vacina, tosa, banho, etc.).
 
 A aplicação deve gerenciar pets e produtos vendidos, controle do estoque, além de permitir ao usuário agendar serviços para o seu pet.
+
+## TODO
++ Faltou somente uma tela na administração para que os administradores sejam capazes de reagendar e cancelar serviços 
++ Tela de login porque vão precisar
++ Telas de edição e cadastro de produtos, serviços, pets e usuários
