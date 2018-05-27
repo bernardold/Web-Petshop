@@ -1,61 +1,11 @@
 /* Navigation Bar */
-
-#navigation-bar {
-    display: block;
-    width: 100%;
+nav {
     background-color: rgb(54, 131, 233);
-    color: #fff;
-    height: 64px;
-    line-height: 64px;
 }
-
-#navigation-bar nav {
-    padding: 0 14px;
+nav .sidenav-trigger {
+    margin: 0;
 }
-
-nav a {
-    color: white;
-    text-decoration: none;
-}
-
-nav .nav-wrapper {
-    position: relative;
-    height: 100%;
-}
-
-nav .nav-wrapper a.brand-logo {
-    position: absolute;
-    display: inline-block;
-    padding: 0;
-}
-
 nav .nav-wrapper a.brand-logo img.logo-img {
     height: 120px;
 }
 
-nav .nav-wrapper ul#nav {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-nav .nav-wrapper ul#nav li {
-    float: left;
-    padding: 0;
-}
-
-nav .nav-wrapper ul#nav li.active {
-    background-color:  rgb(27, 87, 165);
-}
-
-nav .nav-wrapper ul#nav li a{
-    color: white;
-    display: block;
-    padding: 0 15px;
-    cursor: pointer;
-}
-
-img.cart-icon {
-    height: 32px;
-    padding-top: 16px;
-}

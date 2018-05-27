@@ -1,91 +1,60 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html>
     <head>
+        <meta charset="utf-8">
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <link rel="stylesheet" type="text/css" href="styles/stylesheet.css"/>
-        <link rel="stylesheet" type="text/css" href="styles/home.css"/>
         <link rel="stylesheet" type="text/css" href="styles/navigation.css"/>
         <link rel="stylesheet" type="text/css" href="styles/footer.css"/>
-        <meta charset="UTF-8">
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+        <script src="scripts/navigation.js"></script>
+
         <title>Pet-Shop - Home</title>
     </head>
     <body>
-        <div class="row">
-            <div id="navigation-bar">
-                <nav>
-                    <div class="page-constraint">
-                        <div class="nav-wrapper">
-                            <a href="index.html" class="brand-logo"><img class="logo-img" src="images/logo.png"/></a>
-                            <ul id="nav" class="right">
-                                <li><a href="store.html">Loja</a></li>
-                                <li><a href="services.html">Cuidados</a></li>
-                                <li><a href="scheduling.html">Agendamento</a></li>
-                                <li><a href="management.html">Administrar</a></li>
-                                <li><a href="account.html">Rafael</a></li>
-                                <li><a href="shopping-cart.html"><img class="cart-icon" src="images/cart-icon.png"/></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-        </div>
-        <div class="row">
-            <div id="page-content">
-                <div class="page-constraint">
-                    <div class="section">
-                        <div class="for-your-pet">
-                            <h2> Para o seu Pet </h2>
-                            <p> 
-                                Desde a saúde ao bem-estar e lazer, oferecemos o melhor para o seu pet. É felicidade ao seu pet e 
-                                tranquilidade para você.
-                                <br/>
-                                Através do seu cadastro você pode cadastrar todos os seus pets e manter uma lista deles para facilitar
-                                o processo de agendamento de um cuidado.
-                            </p>
-                            <img class="animals-banner" src="images/animals-banner.jpg"/>
-                        </div>
-                        <hr/>
-                    </div>
-                    <div class="section">
-                        <div class="services-presentation clearfix">
-                            <h2> Cuidados </h2>
-                            <div class="services-img left">
-                                <img class="animals-care" src="images/animals-care.png"/>
-                            </div>
-                            <div class="services-text">
-                                <p>
-                                    Temos várias maneiras de cuidar do seu pet. Aqui você tem uma interface facilitada para agendar
-                                    serviços de tosa, vacinação e banho. Pode escolher o horário em uma agenda sempre atualizada e com
-                                    auxílio da sua lista de pets, já escolher quem vai receber o cuidado.
-                                    <br/>
-                                    Nossa equipe é preprada para dar o conforto e bem-estar necessário ao seu pet. E o mais importante:
-                                    Somos todos apaixonados por animais.
-                                </p>
-                            </div>
-                            <a href="services.html" class="default-button bottom-right">Agendar um cuidado</a>
-                        </div>
-                        <hr/>
-                    </div>
-                    <div class="section">
-                        <div class="store-presentation clearfix">
-                            <h2> Loja </h2>
-                            <div class="store-img left">
-                                <img src="images/cat-shopping.png"/>
-                            </div>
-                            <div class="store-text">
-                                <p>
-                                    O cuidado continua em casa. Nós vendemos uma grande variedade de acessórios para o seu pet. Nossa loja
-                                    conta com rações, produtos de higiene, acessórios de alimentação, gaiolas, aquários, transportadores e
-                                    e muito mais. Visite a loja e se surpreenda.
-                                </p>
-                            </div>
-                            <a href="store.html" class="default-button bottom-right">Visitar loja</a>
-                        </div>
-                        <hr/>
-                    </div>
+        <header>
+            <nav>
+                <div class="nav-wrapper">
+                    <ul class="hide-on-desktop-only">
+                        <li><a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">dehaze</i></a></li>
+                    </ul>
+                    <a href="#" class="brand-logo nav-home"><img class="logo-img" src="images/logo.png"/></a>
+                    <ul id="nav" class="right hide-on-med-and-down">
+                        <li><a class="nav-store" href="#">Loja</a></li>
+                        <li><a class="nav-services" href="#">Cuidados</a></li>
+                        <li><a class="nav-management" href="#">Administrar</a></li>
+                        <li><a class="nav-account" href="#">Rafael</a></li>
+                        <li><a class="nav-cart" href="#"><i class="material-icons">shopping_cart</i></a></li>
+                    </ul>
                 </div>
+            </nav>
+
+            <ul id="slide-out" class="sidenav">
+                <li><div class="user-view">
+                    <div class="background">
+                        <img src="images/sidenav-bkg.jpg">
+                    </div>
+                    <a href="#"><img class="nav-account circle" src="images/profile/rafael.jpg"></a>
+                    <a href="#"><b class="nav-account white-text">Rafael</b></a>
+                </div></li>
+                <li><a class="nav-store" href="#">Loja</a></li>
+                <li><a class="nav-services" href="#">Cuidados</a></li>
+                <li><a class="nav-management" href="#">Administrar</a></li>
+                <li><div class="divider"></div></li>
+                <li><a class="nav-cart" href="#">Carrinho</a></li>
+            </ul>
+
+        </header>
+        <main>
+            <div class="container">
+                <div id="page-content"></div>
             </div>
-        </div>
-        <div class="row">
+        </main>
+        <footer>
             <div id="footer">
                 <div class="upper">
                     <b>Pet-Shop</b>
@@ -108,6 +77,6 @@
                     <b>2018 - SSC0219 Introdução ao Desenvolvimento Web - Grupo 2</b>
                 </div>
             </div>
-        </div>
+        </footer>
     </body>
 </html>

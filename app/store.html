@@ -1,161 +1,26 @@
-<!DOCTYPE html>
-<html lang="pt">
-    <head>
-        <link rel="stylesheet" type="text/css" href="styles/stylesheet.css"/>
-        <link rel="stylesheet" type="text/css" href="styles/store.css"/>
-        <link rel="stylesheet" type="text/css" href="styles/navigation.css"/>
-        <link rel="stylesheet" type="text/css" href="styles/footer.css"/>
-        <meta charset="UTF-8">
-        <title>Pet-Shop - Loja</title>
-    </head>
-    <body>
-        <div class="row">
-            <div id="navigation-bar">
-                <nav>
-                    <div class="page-constraint">
-                        <div class="nav-wrapper">
-                            <a href="index.html" class="brand-logo"><img class="logo-img" src="images/logo.png"/></a>
-                            <ul id="nav" class="right">
-                                <li class="active"><a href="store.html">Loja</a></li>
-                                <li><a href="services.html">Cuidados</a></li>
-                                <li><a href="scheduling.html">Agendamento</a></li>
-                                <li><a href="management.html">Administrar</a></li>
-                                <li><a href="account.html">Rafael</a></li>
-                                <li><a href="shopping-cart.html"><img class="cart-icon" src="images/cart-icon.png"/></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
+
+<div class="product-list">
+    <h2 class="blue-text darken-3">Loja</h2>
+
+    <div class="row">
+        <div class="product item-card clearfix">
+            <div class="item-img col s3">
+                <img src="images/products/dog-food.jpg">
+            </div>
+            <div class="item-description col s6">
+                <h5 class="item-title">Ração para cachorro - Adulto - Pedigree</h4>
+                <p class="item-subtitle">Quantidade disponível: 1337</p>
+            </div>
+            <div class="col s3">
+                <div class="item-price right-align">
+                    <span class="price">
+                        <h4 class="value">R$ 100,00</h4>
+                        <p class="installments">em até 10x s/ juros</p>
+                    </span>
+                </div>
+                <div class="v-space"></div>
+                <a class="waves-effect waves-light btn right"><i class="material-icons">add_shopping_cart</i></a>
             </div>
         </div>
-        <div class="row">
-            <div id="page-content">
-                <div class="page-constraint">
-                    <div class="product-list">
-                        <h2>Loja</h2>
-
-                        <div class="product item-card clearfix">
-                            <div class="item-img left">
-                                <img src="images/products/dog-food.jpg">
-                            </div>
-                            <div class="item-description left">
-                                <h3 class="item-title">Ração para cachorro - Adulto - Pedigree</h4>
-                                <p class="item-subtitle">Quantidade disponível: 1337</p>
-                            </div>
-                            <div class="right item-action">
-                                <div class="item-price">
-                                    <span class="price">
-                                        <h1 class="value">R$ 100,00</h1>
-                                        <p class="installments">em até 10x s/ juros</p>
-                                    </span>
-                                </div>
-                                <button class="default-button bottom-right">+ Carrinho</button>
-                            </div>
-                        </div>
-
-                        <div class="product item-card clearfix">
-                            <div class="item-img left">
-                                <img src="images/products/dog-bone-toy.jpg">
-                            </div>
-                            <div class="item-description left">
-                                <h3 class="item-title">Brinquedo para cachorro - Osso</h4>
-                                <p class="item-subtitle">Quantidade disponível: 50</p>
-                            </div>
-                            <div class="right item-action">
-                                <div class="item-price">
-                                    <span class="price">
-                                        <h1 class="value">R$ 20,00</h1>
-                                        <p class="installments">em até 10x s/ juros</p>
-                                    </span>
-                                </div>
-                                <button class="default-button bottom-right">+ Carrinho</button>
-                            </div>
-                        </div>
-
-                        <div class="product item-card clearfix">
-                            <div class="item-img left">
-                                <img src="images/products/bird-cage.jpg">
-                            </div>
-                            <div class="item-description left">
-                                <h3 class="item-title">Gaiola para pássaros aberta</h4>
-                                <p class="item-subtitle">Quantidade disponível: 75</p>
-                            </div>
-                            <div class="right item-action">
-                                <div class="item-price">
-                                    <span class="price">
-                                        <h1 class="value">R$ 80,00</h1>
-                                        <p class="installments">em até 10x s/ juros</p>
-                                    </span>
-                                </div>
-                                <button class="default-button bottom-right">+ Carrinho</button>
-                            </div>
-                        </div>
-
-                        <div class="product item-card clearfix">
-                            <div class="item-img left">
-                                <img src="images/products/fish-bowl.jpg">
-                            </div>
-                            <div class="item-description left">
-                                <h3 class="item-title">Aquário para peixes pequeno</h4>
-                                <p class="item-subtitle">Quantidade disponível: 250</p>
-                            </div>
-                            <div class="right item-action">
-                                <div class="item-price">
-                                    <span class="price">
-                                        <h1 class="value">R$ 25,00</h1>
-                                        <p class="installments">em até 10x s/ juros</p>
-                                    </span>
-                                </div>
-                                <button class="default-button bottom-right">+ Carrinho</button>
-                            </div>
-                        </div>
-
-                        <div class="product item-card clearfix">
-                            <div class="item-img left">
-                                <img src="images/products/litter-box.jpg">
-                            </div>
-                            <div class="item-description left">
-                                <h3 class="item-title">Caixa de areia para gatos</h4>
-                                <p class="item-subtitle">Quantidade disponível: 666</p>
-                            </div>
-                            <div class="right item-action">
-                                <div class="item-price">
-                                    <span class="price">
-                                        <h1 class="value">R$ 75,00</h1>
-                                        <p class="installments">em até 10x s/ juros</p>
-                                    </span>
-                                </div>
-                                <button class="default-button bottom-right">+ Carrinho</button>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div id="footer">
-                <div class="upper">
-                    <b>Pet-Shop</b>
-                    <div class="page-constraint clearfix">
-                        <div class="address">
-                            <b>Endereço</b>
-                            <br/>
-                            R. Endereço Fictício - s/n
-                            <br/>
-                            São Carlos / SP
-                        </div>
-                        <div class="contact">
-                            <b>Contato</b>
-                            <br/>
-                            contato@petshop.com.br
-                        </div>
-                    </div>
-                </div>
-                <div class="lower">
-                    <b>2018 - SSC0219 Introdução ao Desenvolvimento Web - Grupo 2</b>
-                </div>
-            </div>
-        </div>
-    </body>
-</html>
+    </div>
+</div>

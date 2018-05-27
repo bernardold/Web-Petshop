@@ -1,108 +1,78 @@
-<!DOCTYPE html>
-<html lang="pt">
-    <head>
-        <link rel="stylesheet" type="text/css" href="styles/stylesheet.css"/>
-        <link rel="stylesheet" type="text/css" href="styles/shopping-cart.css"/>
-        <link rel="stylesheet" type="text/css" href="styles/navigation.css"/>
-        <link rel="stylesheet" type="text/css" href="styles/footer.css"/>
-        <meta charset="UTF-8">
-        <title>Pet-Shop - Loja</title>
-    </head>
-    <body>
-        <div class="row">
-            <div id="navigation-bar">
-                <nav>
-                    <div class="page-constraint">
-                        <div class="nav-wrapper">
-                            <a href="index.html" class="brand-logo"><img class="logo-img" src="images/logo.png"/></a>
-                            <ul id="nav" class="right">
-                                <li><a href="store.html">Loja</a></li>
-                                <li><a href="services.html">Cuidados</a></li>
-                                <li><a href="scheduling.html">Agendamento</a></li>
-                                <li><a href="management.html">Administrar</a></li>
-                                <li><a href="account.html">Rafael</a></li>
-                                <li class="cart-li active"><a href="shopping-cart.html"><img class="cart-icon" src="images/cart-icon.png"/></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-        </div>
-        <div class="row">
-            <div id="page-content">
-                <div class="page-constraint">
-                    <div class="cart-product-list clearfix">
-                        <h2>Carrinho de Compras</h2>
-                        <div class="purchase-overview right clearfix">
-                            <div class="total"><b>Total:</b> <span class="description">(3 produtos)</span> <span class="price right">R$140,00</span></div>
-                            <button class="confirm-purchase default-button">Finalizar Compra</button>
-                        </div>
-                        <div class="cart-products clearfix">
 
-                            <div class="cart-product item-card clearfix">
-                                <div class="item-img left">
-                                    <img src="images/products/dog-food.jpg">
-                                </div>
-                                <div class="item-description left">
-                                    <h3 class="item-title">Ração para cachorro - Adulto - Pedigree</h4>
-                                    <p class="item-subtitle">Valor: R$100,00</p>
-                                </div>
-                                <div class="right item-action">
-                                    <button class="default-button danger bottom-right remove-cart-button">Remover</button>
-                                    <div class="amount-input-group bottom-right product-amount">
-                                        <button class="group-button"> - </button>
-                                        <input type="number" value="1" min="1" max="999"/>
-                                        <button class="group-button"> + </button>
-                                    </div>
-                                </div>
+<div class="cart-product-list clearfix">
+    <h2 class="blue-text darken-3">Carrinho de Compras</h2>
+    <div class="row">
+        <div class="cart-products col s12 l9">
+
+            <div class="row">
+                <div class="col s12">
+                    <div class="item-card clearfix">
+                        <div class="item-img col s3">
+                            <img src="images/products/dog-food.jpg">
+                        </div>
+                        <div class="item-description col s6">
+                            <h5 class="item-title">Ração para cachorro - Adulto - Pedigree</h5>
+                            <p class="item-subtitle">Valor: R$100,00</p>
+                        </div>
+                        <div class="col s3 right-align">
+                            <div class="input-field product-amount col s12">
+                                <input id="qtd-input-0" name="qtd-input-0" type="number" value="1" min="1" max="999"/>
+                                <label for="qtd-input-0">Quantidade</label>
                             </div>
+                            <div class="v-space"></div>
+                            <button class="waves-effect waves-light btn red remove-cart-button">Remover</button>
+                        </div>
+                    </div>        
+                </div>
+            </div>
 
-                            <div class="cart-product item-card clearfix">
-                                <div class="item-img left">
-                                    <img src="images/products/dog-bone-toy.jpg">
-                                </div>
-                                <div class="item-description left">
-                                    <h3 class="item-title">Brinquedo para cachorro - Osso</h4>
-                                    <p class="item-subtitle">Valor: R$20,00</p>
-                                </div>
-                                <div class="right item-action">
-                                    <button class="default-button danger bottom-right remove-cart-button">Remover</button>
-                                    <div class="amount-input-group bottom-right product-amount">
-                                        <button class="group-button"> - </button>
-                                        <input type="number" value="2" min="1" max="999"/>
-                                        <button class="group-button"> + </button>
-                                    </div>
-                                </div>
+            <div class="row">
+                <div class="col s12">
+                    <div class="item-card clearfix">
+                        <div class="item-img col s3">
+                            <img src="images/products/dog-bone-toy.jpg">
+                        </div>
+                        <div class="item-description col s6">
+                            <h5 class="item-title">Brinquedo para cachorro - Osso</h5>
+                            <p class="item-subtitle">Valor: R$20,00</p>
+                        </div>
+                        <div class="col s3 right-align">
+                            <div class="input-field product-amount col s12">
+                                <input id="qtd-input-1" name="qtd-input-1" type="number" value="2" min="1" max="999"/>
+                                <label for="qtd-input-1">Quantidade</label>
                             </div>
+                            <div class="v-space"></div>
+                            <button class="waves-effect waves-light btn red remove-cart-button">Remover</button>
+                        </div>
+                    </div>        
+                </div>
+            </div>
+        </div>
 
-                        </div>
+        <div class="hide-on-large-only col s12">
+            <div class="divider"></div>
+            <div class="v-space"></div>
+            <h5 class="hide-on-med-and-up blue-text darken-3">Resumo</h5>
+        </div>
+
+        <div class="hide-on-small-only hide-on-large-only col m6">
+            <h2 class="blue-text darken-3">Resumo</h2>
+        </div>
+        <div class="col s12 m6 l3">
+            <div class="item-card clearfix">
+                <div class="col s12">
+                    <div class="total">
+                        <b>Total:</b> <b class="blue-text darken-3 right">R$140,00</b>
+                        <small class="description grey-text">(3&nbsp;produtos)</small>
                     </div>
+                    <div class="v-space"></div>
+                    <div class="v-space"></div>
+                    <div class="center-align">
+                        <button class="confirm-purchase waves-effect waves-light btn">Finalizar Compra</button>
+                    </div>    
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div id="footer">
-                <div class="upper">
-                    <b>Pet-Shop</b>
-                    <div class="page-constraint clearfix">
-                        <div class="address">
-                            <b>Endereço</b>
-                            <br/>
-                            R. Endereço Fictício - s/n
-                            <br/>
-                            São Carlos / SP
-                        </div>
-                        <div class="contact">
-                            <b>Contato</b>
-                            <br/>
-                            contato@petshop.com.br
-                        </div>
-                    </div>
-                </div>
-                <div class="lower">
-                    <b>2018 - SSC0219 Introdução ao Desenvolvimento Web - Grupo 2</b>
-                </div>
-            </div>
-        </div>
-    </body>
-</html>
+    </div>
+
+</div>

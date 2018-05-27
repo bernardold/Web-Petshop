@@ -1,211 +1,96 @@
-<!DOCTYPE html>
-<html lang="pt">
-    <head>
-        <link rel="stylesheet" type="text/css" href="styles/stylesheet.css"/>
-        <link rel="stylesheet" type="text/css" href="styles/account.css"/>
-        <link rel="stylesheet" type="text/css" href="styles/navigation.css"/>
-        <link rel="stylesheet" type="text/css" href="styles/footer.css"/>
-        <meta charset="UTF-8">
-        <title>Pet-Shop - Minha Conta</title>
-    </head>
-    <body>
-        <div class="row">
-            <div id="navigation-bar">
-                <nav>
-                    <div class="page-constraint">
-                        <div class="nav-wrapper">
-                            <a href="index.html" class="brand-logo"><img class="logo-img" src="images/logo.png"/></a>
-                            <ul id="nav" class="right">
-                                <li><a href="store.html">Loja</a></li>
-                                <li><a href="services.html">Cuidados</a></li>
-                                <li><a href="scheduling.html">Agendamento</a></li>
-                                <li><a href="management.html">Administrar</a></li>
-                                <li class="active"><a href="account.html">Rafael</a></li>
-                                <li><a href="shopping-cart.html"><img class="cart-icon" src="images/cart-icon.png"/></a></li>
-                            </ul>
+
+<div class="account-section">
+        <div class="section">
+            <div class="my-account">
+                <h2 class="blue-text darken-3"> Minha Conta </h2>
+                <div class="row">
+                    <div class="personal-info clearfix valign-wrapper">
+                        <div class="profile-img col s12 m3">
+                            <img class="circle responsive-img" src="images/profile/rafael.jpg">
                         </div>
-                    </div>
-                </nav>
-            </div>
-        </div>
-        <div class="row">
-            <div id="page-content">
-                <div class="page-constraint">
-                    
-                    <div class="section">
-                        <div class="my-account">
-                            <h2> Minha Conta </h2>
-                            <div class="personal-info clearfix">
-                                <div class="profile-img left">
-                                    <img src="images/profile/rafael.jpg">
-                                </div>
-                                <div>
-                                    <button class="default-button edit-user-info-button right">Editar</button>
-                                </div>
-                                <div class="profile-info left">
-                                    <div class="inline-info">
-                                        <div class="info">
-                                            <div class="label">Nome</div>
-                                            <div class="value">Rafael </div>
-                                        </div>
-                                        <div class="info">
-                                            <div class="label">Sobrenome</div>
-                                            <div class="value">Aruera da Silva Mendes Antunes</div>
-                                        </div>
-                                    </div>
-                                    <div class="info">
-                                        <div class="label">Email</div>
-                                        <div class="value">rafael.asma@email.com</div>
-                                    </div>
-                                    <div class="info">
-                                        <div class="label">Telefone</div>
-                                        <div class="value">(16) 3419-4000</div>
-                                    </div>
-                                    <div class="info">
-                                        <div class="label">Endereço</div>
-                                        <div class="value">Av. São Carlos, 2911 - Centro, São Carlos - SP</div>
-                                    </div>
-                                </div>
+                        <div class="profile-info col s12 m9">
+                            <div class="info col s12 m4 xl3">
+                                <div class="blue-text darken-3 label"><b>Nome</b></div>
+                                <div class="value">Rafael</div>
+                            </div>
+                            <div class="info col s12 m8 xl9">
+                                <div class="blue-text darken-3 label"><b>Sobrenome</b></div>
+                                <div class="value">Aruera da Silva Mendes Antunes</div>
+                            </div>
+                            <div class="info col s12">
+                                <div class="blue-text darken-3 label"><b>Email</b></div>
+                                <div class="value">rafael.asma@email.com</div>
+                            </div>
+                            <div class="info col s12">
+                                <div class="blue-text darken-3 label"><b>Telefone</b></div>
+                                <div class="value">(16) 3419-4000</div>
+                            </div>
+                            <div class="info col s12">
+                                <div class="blue-text darken-3 label"><b>Endereço</b></div>
+                                <div class="value">Av. São Carlos, 2911 - Centro, São Carlos - SP</div>
                             </div>
                         </div>
-                        <hr/>
                     </div>
-                    <div class="section">
-                        <div class="my-pets clearfix">
-                            <h2> Meus Pets </h2>
-                            <button class="default-button add-pet-button right">Adicionar</button>
-                            <div class="pets-list">
-
-                                <div class="item-card card-pet clearfix">
-                                    <div class="item-img left">
-                                        <img src="images/pets/dog.jpg">
-                                    </div>
-                                    <div class="pet-info left">
-                                        <div class="info">
-                                            <div class="label">Nome</div>
-                                            <div class="value">Nina</div>
-                                        </div>
-                                        <div class="info">
-                                            <div class="label">Espécia / Raça</div>
-                                            <div class="value">Cão - Poodle</div>
-                                        </div>
-                                        <div class="info">
-                                            <div class="label">Idade</div>
-                                            <div class="value">3 anos</div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="item-card card-pet clearfix">
-                                    <div class="item-img left">
-                                        <img src="images/pets/bird.jpg">
-                                    </div>
-                                    <div class="pet-info left">
-                                        <div class="info">
-                                            <div class="label">Nome</div>
-                                            <div class="value">Orley</div>
-                                        </div>
-                                        <div class="info">
-                                            <div class="label">Espécia / Raça</div>
-                                            <div class="value">Pássaro - Calopsita</div>
-                                        </div>
-                                        <div class="info">
-                                            <div class="label">Idade</div>
-                                            <div class="value">7 anos</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                    
-                                <div class="item-card card-pet clearfix">
-                                    <div class="item-img left">
-                                        <img src="images/pets/fish.jpg">
-                                    </div>
-                                    <div class="pet-info left">
-                                        <div class="info">
-                                            <div class="label">Nome</div>
-                                            <div class="value">Jonatas</div>
-                                        </div>
-                                        <div class="info">
-                                            <div class="label">Espécia / Raça</div>
-                                            <div class="value">Peixe - Beta</div>
-                                        </div>
-                                        <div class="info">
-                                            <div class="label">Idade</div>
-                                            <div class="value">2 meses</div>
-                                        </div>
-                                    </div>
-                                </div>
-                                    
-                                <div class="item-card card-pet clearfix">
-                                    <div class="item-img left">
-                                        <img src="images/pets/snake.jpg">
-                                    </div>
-                                    <div class="pet-info left">
-                                        <div class="info">
-                                            <div class="label">Nome</div>
-                                            <div class="value">Julinho</div>
-                                        </div>
-                                        <div class="info">
-                                            <div class="label">Espécia / Raça</div>
-                                            <div class="value">Cobra - Jiboia</div>
-                                        </div>
-                                        <div class="info">
-                                            <div class="label">Idade</div>
-                                            <div class="value">1 ano</div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="item-card card-pet clearfix">
-                                        <div class="item-img left">
-                                            <img src="images/pets/hamster.jpg">
-                                        </div>
-                                        <div class="pet-info left">
-                                            <div class="info">
-                                                <div class="label">Nome</div>
-                                                <div class="value">Hantaro</div>
-                                            </div>
-                                            <div class="info">
-                                                <div class="label">Espécia / Raça</div>
-                                                <div class="value">Hamster - Anão Russo</div>
-                                            </div>
-                                            <div class="info">
-                                                <div class="label">Idade</div>
-                                                <div class="value">7 meses</div>
-                                            </div>
-                                        </div>
-                                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="divider"></div>
+        <div class="section">
+            <div class="my-pets clearfix">
+                <button class="waves-effect waves-light btn add-pet-button right">Adicionar</button>
+                <h2 class="blue-text darken-3"> Meus Pets </h2>
+                <div class="pets-list row">
         
+                    <div class="col s12 l6">
+                        <div class="card horizontal">
+                            <div class="card-image">
+                                <img class="" src="images/pets/dog.jpg">
+                            </div>
+                            <div class="card-stacked">
+                                <div class="card-content">
+                                    <div class="info">
+                                        <div class="blue-text darken-3 label"><b>Nome</b></div>
+                                        <div class="value">Nina</div>
+                                    </div>
+                                    <div class="info">
+                                        <div class="blue-text darken-3 label"><b>Espécia / Raça</b></div>
+                                        <div class="value">Cão - Poodle</div>
+                                    </div>
+                                    <div class="info">
+                                        <div class="blue-text darken-3 label"><b>Idade</b></div>
+                                        <div class="value">3 anos</div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <hr/>
                     </div>
+        
+                    <div class="col s12 l6">
+                        <div class="card horizontal">
+                            <div class="card-image">
+                                <img class="" src="images/pets/bird.jpg">
+                            </div>
+                            <div class="card-stacked">
+                                <div class="card-content">
+                                    <div class="info">
+                                        <div class="blue-text darken-3 label"><b>Nome</b></div>
+                                        <div class="value">Orley</div>
+                                    </div>
+                                    <div class="info">
+                                        <div class="blue-text darken-3 label"><b>Espécia / Raça</b></div>
+                                        <div class="value">Pássaro - Calopsita</div>
+                                    </div>
+                                    <div class="info">
+                                        <div class="blue-text darken-3 label"><b>Idade</b></div>
+                                        <div class="value">7 anos</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div id="footer">
-                <div class="upper">
-                    <b>Pet-Shop</b>
-                    <div class="page-constraint clearfix">
-                        <div class="address">
-                            <b>Endereço</b>
-                            <br/>
-                            R. Endereço Fictício - s/n
-                            <br/>
-                            São Carlos / SP
-                        </div>
-                        <div class="contact">
-                            <b>Contato</b>
-                            <br/>
-                            contato@petshop.com.br
-                        </div>
-                    </div>
-                </div>
-                <div class="lower">
-                    <b>2018 - SSC0219 Introdução ao Desenvolvimento Web - Grupo 2</b>
-                </div>
-            </div>
-        </div>
-    </body>
-</html>
+        <div class="divider"></div>
+</div>    

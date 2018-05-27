@@ -4,46 +4,17 @@ html {
 }
 
 body {
-    margin: 0;
-    font-size: 16px;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
 }
 
-.page-constraint {
-    margin: 0 auto;
-    padding-right: 30px;
-    padding-left: 30px;
-    max-width: 992px;
+main {
+    flex: 1 0 auto;
 }
 
 #page-content {
     padding-top: 60px;
-}
-
-.row {
-    width: 100%;
-    background-color: #fff;
-}
-
-.section {
-    margin-bottom: 20px;
-}
-
-.right {
-    float: right !important;
-}
-
-.left {
-    float: left !important;
-}
-
-.bottom-right {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-}
-
-.centered {
-    text-align: center;
 }
 
 .clearfix::after {
@@ -52,37 +23,13 @@ body {
     display: table;
 }
 
-.default-button {
-    border: none;
-    border-radius: 5px;
-    display: inline-block;
-    width: 218px;
-    height: 36px;
-    line-height: 36px;
-    padding: 0 16px;
-    text-transform: uppercase;
-    font-size: 14px;
-    background-color: rgb(54, 131, 233);
-    color: #fff;
-    text-decoration: none;
-    text-align: center;
-    letter-spacing: .5px;
-    cursor: pointer;
-}
-.default-button.danger {
-    background-color: rgb(204, 3, 3);
-}
-
 .item-card {
-    padding: 20px;
+    padding: 20px 0;
     border: 1px solid #d6d6d6;
     border-radius: 10px;
-    margin: 15px 0 15px 12px;
-    max-height: 200px;
 }
 
 .item-card .item-img {
-    width: 25%;
     max-width: 200px;
     max-height: 200px;
 }
@@ -93,30 +40,16 @@ body {
     border-radius: 10px;
 }
 
-.item-card .item-description {
-    width: 50%;
-    padding-left: 20px;
-}
-
 .item-card .item-description .item-subtitle {
     font-size: 12px;
     color: grey;
 }
 
-.item-card .item-action {
-    width: 25%;
-    height: 200px;
-    position: relative;
-}
-
-.item-card .item-action .item-price {
-    text-align: right;
-}
 .item-card:hover {
     border-color: rgb(54, 131, 233);
 }
 
-.price > h1.value {
+.price > .value {
     color:  rgb(54, 131, 233);
     font-weight: 900;
     letter-spacing: -2px;
@@ -129,10 +62,53 @@ body {
     margin: 0
 }
 
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    margin: 0; 
+div.v-space { height: 20px; }
+div.h-space { width: 20px; }
+
+.btn, .btn-large, .btn-small {
+    background-color: rgb(54, 131, 233);
+}
+.btn:hover, .btn-large:hover, .btn-small:hover {
+    background-color: rgb(84, 148, 233);
+}
+
+.btn:focus, .btn-large:focus, .btn-small:focus, .btn-floating:focus {
+    background-color: rgb(36, 98, 179);
+}
+
+
+/* Home page styling */
+.home-section .for-your-pet .animals-banner {
+    width: 100%;
+}
+.home-section .presentation {
+    position: relative;
+}
+.home-section .presentation .presentation-img {
+    height: 150px;
+    margin-right: 30px;
+}
+.home-section .presentation .presentation-img img {
+    height: 100%;
+}
+
+/* Account page styling */
+.account-section .label>b {
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: -0.5px;
+}
+.account-section .card.horizontal {
+    height: 200px;
+}
+.account-section .card.horizontal .card-image {
+    width: 50%;
+    max-width: 200px;
+    overflow: hidden;
+}
+
+.account-section .card.horizontal .card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }

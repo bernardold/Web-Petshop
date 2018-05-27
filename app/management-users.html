@@ -1,145 +1,85 @@
-<!DOCTYPE html>
-<html lang="pt">
-    <head>
-        <link rel="stylesheet" type="text/css" href="styles/stylesheet.css"/>
-        <link rel="stylesheet" type="text/css" href="styles/management.css"/>
-        <link rel="stylesheet" type="text/css" href="styles/navigation.css"/>
-        <link rel="stylesheet" type="text/css" href="styles/footer.css"/>
-        <meta charset="UTF-8">
-        <title>Pet-Shop - Admin - Gerência</title>
-    </head>
-    <body>
-        <div class="row">
-            <div id="navigation-bar">
-                <nav>
-                    <div class="page-constraint">
-                        <div class="nav-wrapper">
-                            <a href="index.html" class="brand-logo"><img class="logo-img" src="images/logo.png"/></a>
-                            <ul id="nav" class="right">
-                                <li><a href="store.html">Loja</a></li>
-                                <li><a href="services.html">Cuidados</a></li>
-                                <li><a href="scheduling.html">Agendamento</a></li>
-                                <li class="active"><a href="management.html">Administrar</a></li>
-                                <li><a href="account.html">Rafael</a></li>
-                                <li><a href="shopping-cart.html"><img class="cart-icon" src="images/cart-icon.png"/></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-            </div>
+
+<h2 class="title-action blue-text darken-3">Administrar Usuários</h2>
+<button class="waves-effect waves-light btn action-title right">Adicionar</button>
+<div class="manage-users-list">
+
+    <div class="manageable-user clearfix">
+        <div class="user-img left">
+            <img src="images/profile/default.jpg">
         </div>
-        <div class="row">
-            <div id="page-content">
-                <div class="page-constraint">
-                    <h2 class="title-action">Administrar Usuários</h2>
-                    <button class="default-button action-title right">Adicionar</button>
-                    <div class="manage-users-list">
-
-                        <div class="manageable-user clearfix">
-                            <div class="user-img left">
-                                <img src="images/profile/default.jpg">
-                            </div>
-                            <h4>Administrador do Sistema</h4>
-                            <div class="user-role">(Administrador)</div>
-                            <div class="actions right">
-                                <button class="default-button">Editar</button>
-                                <button class="default-button danger">X</button>     
-                            </div>
-                        </div>
-                        <hr/>
-
-                        <div class="manageable-user clearfix">
-                            <div class="user-img left">
-                                <img src="images/profile/dilvan.jpg">
-                            </div>
-                            <h4>Dilvan Moreira</h4>
-                            <div class="user-role">(Administrador)</div>
-                            <div class="actions right">
-                                <button class="default-button">Editar</button>
-                                <button class="default-button danger">X</button>     
-                            </div>
-                        </div>
-                        <hr/>
-
-                        <div class="manageable-user clearfix">
-                            <div class="user-img left">
-                                <img src="images/profile/bernardo.jpg">
-                            </div>
-                            <h4>Bernardo Duarte</h4>
-                            <div class="user-role">(Usuário)</div>
-                            <div class="actions right">
-                                <button class="default-button">Editar</button>
-                                <button class="default-button danger">X</button>     
-                            </div>
-                        </div>
-                        <hr/>
-
-                        <div class="manageable-user clearfix">
-                            <div class="user-img left">
-                                <img src="images/profile/giovani.jpg">
-                            </div>
-                            <h4>Giovani Ortolani</h4>
-                            <div class="user-role">(Usuário)</div>
-                            <div class="actions right">
-                                <button class="default-button">Editar</button>
-                                <button class="default-button danger">X</button>     
-                            </div>
-                        </div>
-                        <hr/>
-
-                        <div class="manageable-user clearfix">
-                            <div class="user-img left">
-                                <img src="images/profile/jorge.jpg">
-                            </div>
-                            <h4>Jorge Luiz Vilaça</h4>
-                            <div class="user-role">(Usuário)</div>
-                            <div class="actions right">
-                                <button class="default-button">Editar</button>
-                                <button class="default-button danger">X</button>     
-                            </div>
-                        </div>
-                        <hr/>
-
-                        <div class="manageable-user clearfix">
-                            <div class="user-img left">
-                                <img src="images/profile/rafael.jpg">
-                            </div>
-                            <h4>Rafael Aruera da Silva Mendes Antunes</h4>
-                            <div class="user-role">(Usuário)</div>
-                            <div class="actions right">
-                                <button class="default-button">Editar</button>
-                                <button class="default-button danger">X</button>     
-                            </div>
-                        </div>
-                        <hr/>
-                            
-                    </div>
-                </div>
-            </div>
+        <h4>Administrador do Sistema</h4>
+        <div class="user-role">(Administrador)</div>
+        <div class="actions right">
+            <button class="waves-effect waves-light btn">Editar</button>
+            <button class="waves-effect waves-light btn danger">X</button>     
         </div>
-        <div class="row">
-            <div id="footer">
-                <div class="upper">
-                    <b>Pet-Shop</b>
-                    <div class="page-constraint clearfix">
-                        <div class="address">
-                            <b>Endereço</b>
-                            <br/>
-                            R. Endereço Fictício - s/n
-                            <br/>
-                            São Carlos / SP
-                        </div>
-                        <div class="contact">
-                            <b>Contato</b>
-                            <br/>
-                            contato@petshop.com.br
-                        </div>
-                    </div>
-                </div>
-                <div class="lower">
-                    <b>2018 - SSC0219 Introdução ao Desenvolvimento Web - Grupo 2</b>
-                </div>
-            </div>
+    </div>
+    <hr/>
+
+    <div class="manageable-user clearfix">
+        <div class="user-img left">
+            <img src="images/profile/dilvan.jpg">
         </div>
-    </body>
-</html>
+        <h4>Dilvan Moreira</h4>
+        <div class="user-role">(Administrador)</div>
+        <div class="actions right">
+            <button class="waves-effect waves-light btn">Editar</button>
+            <button class="waves-effect waves-light btn danger">X</button>     
+        </div>
+    </div>
+    <hr/>
+
+    <div class="manageable-user clearfix">
+        <div class="user-img left">
+            <img src="images/profile/bernardo.jpg">
+        </div>
+        <h4>Bernardo Duarte</h4>
+        <div class="user-role">(Usuário)</div>
+        <div class="actions right">
+            <button class="waves-effect waves-light btn">Editar</button>
+            <button class="waves-effect waves-light btn danger">X</button>     
+        </div>
+    </div>
+    <hr/>
+
+    <div class="manageable-user clearfix">
+        <div class="user-img left">
+            <img src="images/profile/giovani.jpg">
+        </div>
+        <h4>Giovani Ortolani</h4>
+        <div class="user-role">(Usuário)</div>
+        <div class="actions right">
+            <button class="waves-effect waves-light btn">Editar</button>
+            <button class="waves-effect waves-light btn danger">X</button>     
+        </div>
+    </div>
+    <hr/>
+
+    <div class="manageable-user clearfix">
+        <div class="user-img left">
+            <img src="images/profile/jorge.jpg">
+        </div>
+        <h4>Jorge Luiz Vilaça</h4>
+        <div class="user-role">(Usuário)</div>
+        <div class="actions right">
+            <button class="waves-effect waves-light btn">Editar</button>
+            <button class="waves-effect waves-light btn danger">X</button>     
+        </div>
+    </div>
+    <hr/>
+
+    <div class="manageable-user clearfix">
+        <div class="user-img left">
+            <img src="images/profile/rafael.jpg">
+        </div>
+        <h4>Rafael Aruera da Silva Mendes Antunes</h4>
+        <div class="user-role">(Usuário)</div>
+        <div class="actions right">
+            <button class="waves-effect waves-light btn">Editar</button>
+            <button class="waves-effect waves-light btn danger">X</button>     
+        </div>
+    </div>
+    <hr/>
+        
+</div>
+
