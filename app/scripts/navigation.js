@@ -1,9 +1,4 @@
 $(() => {
-    // default page to load
-    $("#page-content").load("home.html");
-
-    // Set mobile sidenav
-    $('.sidenav').sidenav();
     
     // load pages dynamically
     $(".nav-home").click(() => {
