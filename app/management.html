@@ -9,7 +9,7 @@
             </div>
             <div class="col s3">
                 <div class="v-space"></div>
-                <a class="nav-manage-users waves-effect waves-light btn right" href="#"> Gerenciar </a>
+                <a id="nav-man-users" class="waves-effect waves-light btn right" href="#"> Gerenciar </a>
             </div>
         </div>
     </div>
@@ -22,7 +22,7 @@
             </div>
             <div class="col s3">
                 <div class="v-space"></div>
-                <a class="nav-manage-produts waves-effect waves-light btn right" href="#"> Gerenciar </a>
+                <a id="nav-man-products" class="waves-effect waves-light btn right" href="#"> Gerenciar </a>
             </div>
         </div>
     </div>
@@ -35,9 +35,21 @@
             </div>
             <div class="col s3">
                 <div class="v-space"></div>
-                <a class="nav-manage-services waves-effect waves-light btn right" href="#"> Gerenciar </a>
+                <a id="nav-man-services" class="waves-effect waves-light btn right" href="#"> Gerenciar </a>
             </div>
         </div>
     </div>
 
 </div>
+
+<script>
+    $("#nav-man-users").click(() => {
+        $("#page-content").load("management-users.html");
+    });
+    $("#nav-man-products").click(() => {
+        $("#page-content").load("management-products.html");
+    });
+    $("#nav-man-services").click(() => {
+        $("#page-content").load("management-services.html");
+    });
+</script>

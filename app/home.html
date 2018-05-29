@@ -30,7 +30,7 @@
                 </p>
             </div>
             <div class="v-space"></div>
-            <a href="#" class="nav-services waves-effect waves-light btn right">Agendar um cuidado</a>
+            <a href="#" id="nav-home-services" class="waves-effect waves-light btn right">Agendar um cuidado</a>
         </div>
     </div>
     <div class="divider"></div>
@@ -48,8 +48,17 @@
                 </p>
             </div>
             <div class="v-space"></div>
-            <a href="#" class="nav-store waves-effect waves-light btn right">Visitar loja</a>
+            <a href="#" id="nav-home-store" class="nav-store waves-effect waves-light btn right">Visitar loja</a>
         </div>
     </div>
     <div class="divider"></div>
 </div>
+
+<script>
+    $("#nav-home-services").click(() => {
+        $("#page-content").load("services.html");
+    });
+    $("#nav-home-store").click(() => {
+        $("#page-content").load("store.html");
+    });
+</script>
