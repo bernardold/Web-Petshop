@@ -11,9 +11,12 @@
         
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+        <script src="scripts/db/indexedDB.js"></script>
+        <script src="scripts/db/user.js"></script>
+        <script src="scripts/db/pet.js"></script>
         <script src="scripts/script.js"></script>
         <script src="scripts/navigation.js"></script>
-
+        
         <title>Pet-Shop - Home</title>
     </head>
     <body>
@@ -23,14 +26,17 @@
                     <ul class="hide-on-desktop-only">
                         <li><a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">dehaze</i></a></li>
                     </ul>
-                    <a href="#" class="brand-logo nav-home"><img class="logo-img" src="images/logo.png"/></a>
-                    <ul id="nav" class="right hide-on-med-and-down">
-                        <li><a class="nav-store" href="#">Loja</a></li>
-                        <li><a class="nav-services" href="#">Cuidados</a></li>
-                        <li><a class="nav-management" href="#">Administrar</a></li>
-                        <li><a class="nav-account" href="#">Rafael</a></li>
-                        <li><a class="nav-cart" href="#"><i class="material-icons">shopping_cart</i></a></li>
-                    </ul>
+                    <div class="container">
+                        <a href="#" class="brand-logo nav-home"><img class="logo-img" src="images/logo.png"/></a>
+                        <ul id="nav" class="right hide-on-med-and-down">
+                            <li><a class="nav-store" href="#">Loja</a></li>
+                            <li><a class="nav-services" href="#">Cuidados</a></li>
+                            <li><a class="nav-management" href="#">Administrar</a></li>
+                            <li><a class="nav-account" href="#">Nome do Usuário</a></li>
+                            <li><a class="nav-login" href="#">Entrar</a></li>
+                            <li><a class="nav-cart" href="#"><i class="material-icons">shopping_cart</i></a></li>
+                        </ul>
+                    </div>
                 </div>
             </nav>
 
@@ -45,6 +51,7 @@
                 <li><a class="nav-store" href="#">Loja</a></li>
                 <li><a class="nav-services" href="#">Cuidados</a></li>
                 <li><a class="nav-management" href="#">Administrar</a></li>
+                <li><a class="nav-login" href="#">Entrar</a></li>
                 <li><div class="divider"></div></li>
                 <li><a class="nav-cart" href="#">Carrinho</a></li>
             </ul>

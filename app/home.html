@@ -61,4 +61,9 @@
     $("#nav-home-store").click(() => {
         $("#page-content").load("store.html");
     });
+
+    if (!loggedUser) {
+        $("#nav-home-services").hide();
+        $("#nav-home-store").hide();
+    }
 </script>

@@ -1,0 +1,37 @@
+<div class="home-section">
+    <div class="container">
+        <h2 class="title-action blue-text darken-3">Entrar</h2>
+        <div class="z-depth-1 grey lighten-4 row login-form-card">  
+            <form id="login-form" class="col s12" method="post">
+                <div class='row'>
+                    <div class='input-field col s12'>
+                        <input class='validate' type='email' name='email' id='email' />
+                        <label for='email'>Digite email</label>
+                    </div>
+                </div>
+                <div class='row'>
+                    <div class='input-field col s12'>
+                        <input class='validate' type='password' name='password' id='password' />
+                        <label for='password'>Digite senha</label>
+                    </div>
+                </div>
+
+                <div class='row'>
+                    <div class="col s12 center-align">
+                        <button type='submit' name='btn_login' class='btn btn-large waves-effect'>Entrar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('#login-form').submit((evt) => {
+        evt.preventDefault();
+        
+        email = $('#email').val();
+        pass = $('#password').val();
+        tryLogin(email, pass);
+    })
+</script>

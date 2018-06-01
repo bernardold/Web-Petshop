@@ -77,6 +77,12 @@ div.h-space { width: 20px; }
 }
 
 
+/* Login page styling */
+.login-form-card {
+    padding: 32px 48px 0px 48px;
+    border: 1px solid #EEE;
+}
+
 /* Home page styling */
 .home-section .for-your-pet .animals-banner {
     width: 100%;
