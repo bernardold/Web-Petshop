@@ -1,5 +1,5 @@
 
-getServices = () => {
+getServices = (cb = () => {}) => {
     services = [];
     var request = db.transaction("services").objectStore("services").openCursor();
 
@@ -13,7 +13,22 @@ getServices = () => {
             cursor.continue();
         } else {
             // Não há mais registro de serviços
-            updateServices(services);
+            cb(services);
         }
+    };
+}
+
+countServices = (cb = () => {}) => {
+    const objectStore = db.transaction("services").objectStore("services");
+    const request = objectStore.count();
+    request.onsuccess = () => {
+        cb(request.result);
+    }
+}
+
+removeService = (id, cb = () => {}) => {
+    var request = db.transaction(["services"], "readwrite").objectStore("services").delete(id);
+    request.onsuccess = function(event) {
+        getServices(cb);
     };
 }

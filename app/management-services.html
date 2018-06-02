@@ -2,24 +2,54 @@
     <button class="waves-effect waves-light btn action-title right">Adicionar</button>
     <h2 class="title-action blue-text darken-3">Administrar Produtos da Loja</h2>
     <div class="manage-service-list">
-    
+    </div>
+</div>    
+<script>
+    var serviceItemHtmlTemplate = `    
         <div class="v-space"></div>
         <div class="row">
             <div class="col s12 valign-wrapper">
                 <div class="service-img col s2">
-                    <img class="circle responsive-img" src="images/services/dog-grooming.png">
+                    <img class="circle responsive-img" src="{{image}}" onerror="this.src='images/default.jpg';">
                 </div>
                 <div class="col s10">
-                    <h4>Banho + Tosa - Cães</h4>
-                    <div class="service-duration">Duração: 1h</div>
+                    <h4>{{name}}</h4>
+                    <div class="service-duration">Duração: {{duration}} {{unit}}</div>
                     <div class="actions right">
-                        <button class="waves-effect waves-light btn">Editar</button>
-                        <button class="waves-effect waves-light btn red"><i class="material-icons">delete_forever</i></button>     
+                        <button onclick="editService({{id}})" class="waves-effect waves-light btn">Editar</button>
+                        <button onclick="confirmRemoveService({{id}})" class="waves-effect waves-light btn red"><i class="material-icons">delete_forever</i></button>     
                     </div>
                 </div>
             </div>
         </div>
-        <div class="divider"></div>
+        <div class="divider"></div>`
 
-    </div>
-</div>    
+    updateManageServicesList = (servicesList) => {
+        let servicesHtml = '';
+        $('.manage-service-list').empty();
+
+        $.each(servicesList, (i, obj) => {
+            let serviceItemHtml = serviceItemHtmlTemplate;
+            for (var key in obj) {
+                if (key == 'image_id') {
+                    obj[key] = (obj[key] == undefined) ? 21 : obj[key];
+                    serviceItemHtml = serviceItemHtml.split('{{image}}').join(initialImageSrc[obj[key]])
+                } else if (obj.hasOwnProperty(key)) {
+                    serviceItemHtml = serviceItemHtml.split(`{{${key}}}`).join(obj[key]);
+                }
+            }
+            servicesHtml += serviceItemHtml;
+        });
+        
+        $('.manage-service-list').html(servicesHtml);
+    }
+
+    getServices(updateManageServicesList);
+
+    confirmRemoveService = (id) => {
+        let conf = confirm("Tem certeza que remover cuidado?")
+        if (conf) {
+            removeService(id, updateManageServicesList);
+        }
+    }
+</script>

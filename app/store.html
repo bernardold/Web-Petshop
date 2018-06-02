@@ -27,8 +27,6 @@
             </div>
         </div>`
 
-    getStoreProducts();
-
     updateProducts = (productsList) => {
         let productsHtml = '';
         $('.product-list').empty();
@@ -53,5 +51,6 @@
         $('.product-list').html(productsHtml);
     }
 
+    getStoreProducts(updateProducts);
 
 </script>

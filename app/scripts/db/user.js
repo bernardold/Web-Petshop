@@ -42,6 +42,29 @@ logOut = () => {
     }
 }
 
+countUsers = (cb = () => {}) => {
+    const objectStore = db.transaction("users").objectStore("users");
+    const request = objectStore.count();
+    request.onsuccess = () => {
+        cb(request.result);
+    }
+}
+
+getAllUsers = () => {
+    const objectStore = db.transaction("users").objectStore("users");
+    const request = objectStore.getAll();
+    request.onsuccess = () => {
+        updateManageUsersList(request.result);
+    }
+}
+
+removeUser = (id) => {
+    var request = db.transaction(["users"], "readwrite").objectStore("users").delete(id);
+    request.onsuccess = function(event) {
+        getAllUsers();
+    };
+}
+
 /*
 //busca usuário por id
 function readUserById(id) {
@@ -64,32 +87,6 @@ function readUserById(id) {
     };
 }
 
-//le todos os usuários 
-function readAllUser() {
-    var objectStore = db.transaction("users").objectStore("users");
-   
-    //O cursor serve para percorrer o bd, em ideia parecida com o iterator do java, creio eu    
-    objectStore.openCursor().onsuccess = function(event) {
-        var cursor = event.target.result;
-      
-        if (cursor) {
-            alert(Object.values(cursor.value));
-            cursor.continue();
-        } else {
-            alert("No more entries!");
-        }
-    };
-}
-
-function countUsers() {
-    const objectStore = db.transaction("users").objectStore("users");
-    const request = objectStore.count();
-
-    request.onsuccess = () => {
-        console.log(request.result);
-    }
-}
-
 //adiciona um novo usuário no sistema
 //user deve ser um objeto JSON
 function addUser(user) {
@@ -106,14 +103,4 @@ function addUser(user) {
     }
 }
 
-//remove um usuário do sistema
-function removeUser(id) {
-    var request = db.transaction(["users"], "readwrite")
-    .objectStore("users")
-    .delete(id);
-   
-    request.onsuccess = function(event) {
-        alert("Usuário deletado.");
-    };
-}
 */

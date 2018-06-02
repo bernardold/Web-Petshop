@@ -1,5 +1,5 @@
 
-getStoreProducts = () => {
+getStoreProducts = (cb = () => {}) => {
     products = [];
     var request = db.transaction("products").objectStore("products").openCursor();
 
@@ -13,7 +13,22 @@ getStoreProducts = () => {
             cursor.continue();
         } else {
             // Não há mais registro de produtos
-            updateProducts(products);
+            cb(products);
         }
+    };
+}
+
+countProducts = (cb = () => {}) => {
+    const objectStore = db.transaction("products").objectStore("products");
+    const request = objectStore.count();
+    request.onsuccess = () => {
+        cb(request.result);
+    }
+}
+
+removeProduct = (id, cb = () => {}) => {
+    var request = db.transaction(["products"], "readwrite").objectStore("products").delete(id);
+    request.onsuccess = function(event) {
+        getStoreProducts(cb);
     };
 }

@@ -28,8 +28,6 @@
                 </div>
             </div>
         </div>`
-    
-    getServices();
 
     updateServices = (servicesList) => {
         let servicesHtml = '';
@@ -54,6 +52,7 @@
         
         $('.service-list').html(servicesHtml);
     }
-
+    
+    getServices(updateServices);
 
 </script>

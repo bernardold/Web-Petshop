@@ -5,7 +5,7 @@
         <div class="item-card clearfix">
             <div class="item-description col s9">
                 <h5 class="item-title">Usuários</h4>
-                <span class="item-subtitle left">6 Usuários</span>
+                <span class="item-subtitle left"><span id="user-count">X</span> Usuários</span>
             </div>
             <div class="col s3">
                 <div class="v-space"></div>
@@ -18,7 +18,7 @@
         <div class="item-card clearfix">
             <div class="item-description col s9">
                 <h5 class="item-title">Produtos da Loja</h4>
-                <span class="item-subtitle left">5 Produtos</span>
+                <span class="item-subtitle left"><span id="product-count">X</span> Produtos</span>
             </div>
             <div class="col s3">
                 <div class="v-space"></div>
@@ -31,7 +31,7 @@
         <div class="item-card clearfix">
             <div class="item-description col s9">
                 <h5 class="item-title">Serviços de Cuidados</h4>
-                <span class="item-subtitle left">4 Cuidados</span>
+                <span class="item-subtitle left"><span id="service-count">X</span> Cuidados</span>
             </div>
             <div class="col s3">
                 <div class="v-space"></div>
@@ -51,5 +51,15 @@
     });
     $("#nav-man-services").click(() => {
         $("#page-content").load("management-services.html");
+    });
+
+    countUsers((count) => {
+        $('#user-count').html(count)
+    });
+    countProducts((count) => {
+        $('#product-count').html(count)
+    });
+    countServices((count) => {
+        $('#service-count').html(count)
     });
 </script>

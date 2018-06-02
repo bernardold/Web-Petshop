@@ -3,42 +3,55 @@
     <button class="waves-effect waves-light btn action-title right">Adicionar</button>
     <h2 class="title-action blue-text darken-3">Administrar Usuários</h2>
     <div class="manage-users-list">
-        
+    </div>
+</div>
+
+<script>
+    var userItemHtmlTemplate = `
         <div class="v-space"></div>
         <div class="row">
             <div class="col s12 valign-wrapper">
                 <div class="profile-img col s2">
-                    <img class="circle responsive-img" src="images/profile/default.jpg">
+                    <img class="circle responsive-img" src="{{image}}" onerror="this.src='images/profile/default.jpg';">
                 </div>
                 <div class="col s10">
-                    <h4>Administrador do Sistema</h4>
-                    <div class="user-role">(Administrador)</div>
+                    <h4>{{name}} {{lastname}}</h4>
+                    <div class="user-role">{{email}} ({{role}})</div>
                     <div class="actions right">
-                        <button class="waves-effect waves-light btn">Editar</button>
-                        <button class="waves-effect waves-light btn red"><i class="material-icons">delete_forever</i></button>     
+                        <button onclick="editUser({{id}})" class="waves-effect waves-light btn">Editar</button>
+                        <button onclick="confirmRemoveUser({{id}})" class="waves-effect waves-light btn red"><i class="material-icons">delete_forever</i></button>     
                     </div>
                 </div>
             </div>
         </div>
-        <div class="divider"></div>
+        <div class="divider"></div>`
 
-        <div class="v-space"></div>
-        <div class="row">
-            <div class="col s12">
-                <div class="profile-img col s2">
-                    <img class="circle responsive-img" src="images/profile/rafael.jpg">
-                </div>
-                <div class="col s10">
-                    <h4>Rafael Aruera da Silva Mendes Antunes</h4>
-                    <div class="user-role">(Usuário)</div>
-                    <div class="actions right">
-                        <button class="waves-effect waves-light btn">Editar</button>
-                        <button class="waves-effect waves-light btn red"><i class="material-icons">delete_forever</i></button>     
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="divider"></div>
-    
-    </div>
-</div>
+    getAllUsers();
+
+    updateManageUsersList = (usersList) => {
+        let usersHtml = '';
+        $('.manage-users-list').empty();
+
+        $.each(usersList, (i, obj) => {
+            let userItemHtml = userItemHtmlTemplate;
+            for (var key in obj) {
+                if (key == 'image_id') {
+                    obj[key] = (obj[key] == undefined) ? 21 : obj[key];
+                    userItemHtml = userItemHtml.split('{{image}}').join(initialImageSrc[obj[key]])
+                } else if (obj.hasOwnProperty(key)) {
+                    userItemHtml = userItemHtml.split(`{{${key}}}`).join(obj[key]);
+                }
+            }
+            usersHtml += userItemHtml;
+        });
+        
+        $('.manage-users-list').html(usersHtml);
+    }
+
+    confirmRemoveUser = (id) => {
+        let conf = confirm("Tem certeza que remover usuário?")
+        if (conf) {
+            removeUser(id);
+        }
+    }
+</script>
