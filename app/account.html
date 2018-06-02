@@ -10,23 +10,23 @@
                             <img class="circle responsive-img" src="images/profile/rafael.jpg">
                         </div>
                         <div class="profile-info col s12 m9">
-                            <div class="info col s12 m4 xl3">
+                            <div class="info-name col s12 m4 xl3">
                                 <div class="blue-text darken-3 label"><b>Nome</b></div>
                                 <div class="value">Rafael</div>
                             </div>
-                            <div class="info col s12 m8 xl9">
+                            <div class="info-lastname col s12 m8 xl9">
                                 <div class="blue-text darken-3 label"><b>Sobrenome</b></div>
                                 <div class="value">Aruera da Silva Mendes Antunes</div>
                             </div>
-                            <div class="info col s12">
+                            <div class="info-email col s12">
                                 <div class="blue-text darken-3 label"><b>Email</b></div>
                                 <div class="value">rafael.asma@email.com</div>
                             </div>
-                            <div class="info col s12">
+                            <div class="info-phone col s12">
                                 <div class="blue-text darken-3 label"><b>Telefone</b></div>
                                 <div class="value">(16) 3419-4000</div>
                             </div>
-                            <div class="info col s12">
+                            <div class="info-address col s12">
                                 <div class="blue-text darken-3 label"><b>Endereço</b></div>
                                 <div class="value">Av. São Carlos, 2911 - Centro, São Carlos - SP</div>
                             </div>
@@ -51,45 +51,21 @@
                                 <div class="card-content">
                                     <div class="info">
                                         <div class="blue-text darken-3 label"><b>Nome</b></div>
-                                        <div class="value">Nina</div>
+                                        <div class="value">{{name}}</div>
                                     </div>
                                     <div class="info">
                                         <div class="blue-text darken-3 label"><b>Espécia / Raça</b></div>
-                                        <div class="value">Cão - Poodle</div>
+                                        <div class="value">{{species}}</div>
                                     </div>
                                     <div class="info">
                                         <div class="blue-text darken-3 label"><b>Idade</b></div>
-                                        <div class="value">3 anos</div>
+                                        <div class="value">{{age}} <span>{{unit}}</span></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-        
-                    <div class="col s12 l6">
-                        <div class="card horizontal">
-                            <div class="card-image">
-                                <img class="" src="images/pets/bird.jpg">
-                            </div>
-                            <div class="card-stacked">
-                                <div class="card-content">
-                                    <div class="info">
-                                        <div class="blue-text darken-3 label"><b>Nome</b></div>
-                                        <div class="value">Orley</div>
-                                    </div>
-                                    <div class="info">
-                                        <div class="blue-text darken-3 label"><b>Espécia / Raça</b></div>
-                                        <div class="value">Pássaro - Calopsita</div>
-                                    </div>
-                                    <div class="info">
-                                        <div class="blue-text darken-3 label"><b>Idade</b></div>
-                                        <div class="value">7 anos</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-        
+
                 </div>
             </div>
         </div>
@@ -97,4 +73,35 @@
 </div>    
 
 <script>
+    const petCardHtmlTemplate = '<div class="col s12 l6"><div class="card horizontal"><div class="card-image"><img class="" src="images/pets/dog.jpg"></div>' +
+                        '<div class="card-stacked"><div class="card-content"><div class="info"><div class="blue-text darken-3 label"><b>Nome</b></div>' +
+                        '<div class="value">{{name}}</div></div><div class="info"><div class="blue-text darken-3 label"><b>Espécia / Raça</b></div><div class="value">{{species}}</div>' +
+                        '</div><div class="info"><div class="blue-text darken-3 label"><b>Idade</b></div><div class="value">{{age}} <span>{{unit}}</span></div>' +
+                        '</div></div></div></div></div>'
+    if (loggedUser) {
+        $('.profile-info .info-name .value').html(loggedUser.name);
+        $('.profile-info .info-lastname .value').html(loggedUser.lastname);
+        $('.profile-info .info-email .value').html(loggedUser.email);
+        $('.profile-info .info-phone .value').html(loggedUser.telephone);
+        $('.profile-info .info-address .value').html(loggedUser.address);
+
+        getPetsByUser(loggedUser.id);
+    }
+
+    updatePets = (petsList) => {
+        let petsHtml = '';
+        $('.pets-list').empty();
+
+        $.each(petsList, (i, obj) => {
+            let petCardHtml = petCardHtmlTemplate; 
+            for (var key in obj) {
+                if (obj.hasOwnProperty(key)) {
+                    petCardHtml = petCardHtml.split(`{{${key}}}`).join(obj[key]);
+                }
+            }
+            petsHtml += petCardHtml;
+        });
+        
+        $('.pets-list').html(petsHtml);
+    }
 </script>

@@ -17,7 +17,7 @@ const initialPets = [
     { id: 3, owner_id: 1, name: "Hantaro", species: "Hamster", age: 1, unit: 'anos' },
     { id: 4, owner_id: 1, name: "Carlos", species: "Cobra", age: 5, unit: 'anos' },
     { id: 5, owner_id: 2, name: "Nina", species: "Cão - Poodle", age: 2, unit: 'anos' },
-    { id: 6, owner_id: 3, name: "Bastão", species: "Cão - Bulldog", age: 10, unit: 'anos' },
+    { id: 6, owner_id: 3, name: "Bastião", species: "Cão - Bulldog", age: 10, unit: 'anos' },
     { id: 7, owner_id: 3, name: "Zé", species: "Cão - Cocker", age: 17, unit: 'anos' },
     { id: 8, owner_id: 3, name: "Bráulio", species: "Cão - Pincher", age: 2, unit: 'anos' },
 ];
@@ -42,7 +42,8 @@ request.onupgradeneeded = (event) => {
     userStore.createIndex('email', 'email', {unique: true});
 
     const petStore = db.createObjectStore("pets", {keyPath: "id"});
-    
+    petStore.createIndex('owner_id', 'owner_id', {unique: false});
+
     for (let i in initialUsers) {
         userStore.add(initialUsers[i]);
     }
@@ -50,7 +51,6 @@ request.onupgradeneeded = (event) => {
         petStore.add(initialPets[i]);
     }
 }
-
 
 //limpa o bd
 clear = () => {

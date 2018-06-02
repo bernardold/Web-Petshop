@@ -1,5 +1,23 @@
+var userPets = []
 
-//as funções seguintes são totalmente análogas às anteriores
+getPetsByUser = (userId) => {
+    userPets = [];
+    var request = db.transaction("pets").objectStore("pets").index('owner_id').openCursor(userId);
+
+    request.onerror = function(event) {
+        alert("Erro ao ler obter pets");
+    };
+    request.onsuccess = function(event) {
+        let cursor = event.target.result;
+        if (cursor) {
+            userPets.push(cursor.value);
+            cursor.continue();
+        } else {
+            // Não há mais registro de animais
+            updatePets(userPets);
+        }
+    };
+}
 
 //busca animal por id
 function readPet(id) {
