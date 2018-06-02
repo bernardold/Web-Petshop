@@ -23,11 +23,18 @@ const initialPets = [
 ];
 
 const initialProducts = [
-
+    { id: 0, image_id: 12, name: 'Gaiola Aberta', price: 250.0, amount: 50 },
+    { id: 1, image_id: 13, name: 'Brinquedo para cães - Osso', price: 25.0, amount: 200 },
+    { id: 2, image_id: 14, name: 'Ração para cães - Adulto - Pedigree', price: 100.0, amount: 1337 },
+    { id: 3, image_id: 15, name: 'Aquário para peixes - Pequeno', price: 70.0, amount: 20 },
+    { id: 4, image_id: 16, name: 'Caixa de areia para gatos', price: 80.0, amount: 30 },
 ]
 
 const initialServices = [
-
+    { id: 0, image_id: 17, name: 'Banho + Tosa - Gatos', price: 40.0, duration: 1, unit: 'horas' },
+    { id: 1, image_id: 18, name: 'Banho + Tosa - Cães', price: 40.0, duration: 1, unit: 'horas' },
+    { id: 2, image_id: 19, name: 'Vacina', price: 20.0, duration: 30, unit: 'minutos' },
+    { id: 3, image_id: 20, name: 'Atendimento veterinários', price: 150.0, duration: 1, unit: 'horas' },
 ]
 
 // Caminho para imagens iniciais a serem transformadas em array buffer no indexedDB
@@ -50,9 +57,10 @@ const initialImageSrc = [
     'images/products/fish-bowl.jpg',    // 15
     'images/products/litter-box.jpg',
     'images/services/cat-grooming.jpg',
-    'images/services/dog-grooming.jpg',
+    'images/services/dog-grooming.png',
     'images/services/vaccine.jpg',
     'images/services/veterinarian.png', // 20
+    'images/default.jpg',
 ];
 
 var db
@@ -91,13 +99,24 @@ request.onupgradeneeded = (event) => {
     const petStore = db.createObjectStore("pets", {keyPath: "id"});
     petStore.createIndex('owner_id', 'owner_id', {unique: false});
 
+    const productStore = db.createObjectStore("products", {keyPath: "id"});
+    const serviceStore = db.createObjectStore("services", {keyPath: "id"});
+
     for (let i in initialUsers) {
         userStore.add(initialUsers[i]);
     }
     for (let i in initialPets) {
         petStore.add(initialPets[i]);
     }
-    
+    for (let i in initialProducts) {
+        productStore.add(initialProducts[i]);
+    }
+    for (let i in initialServices) {
+        serviceStore.add(initialServices[i]);
+    }
+
+    // To save images as Array Buffer in indexedDB
+    // Não consegui fazer funcionar dessa formaS
     addArrayBufferToUsers();
 }
 

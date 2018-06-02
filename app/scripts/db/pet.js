@@ -5,7 +5,7 @@ getPetsByUser = (userId) => {
     var request = db.transaction("pets").objectStore("pets").index('owner_id').openCursor(userId);
 
     request.onerror = function(event) {
-        alert("Erro ao ler obter pets");
+        alert("Erro ao obter pets");
     };
     request.onsuccess = function(event) {
         let cursor = event.target.result;
@@ -19,6 +19,7 @@ getPetsByUser = (userId) => {
     };
 }
 
+/*
 //busca animal por id
 function readPet(id) {
     var transaction = db.transaction(["pets"]);
@@ -81,3 +82,5 @@ function removePet(id) {
         alert("Animal deletado.");
     };
 }
+
+*/

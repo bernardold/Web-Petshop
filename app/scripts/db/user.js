@@ -42,6 +42,7 @@ logOut = () => {
     }
 }
 
+/*
 //busca usuário por id
 function readUserById(id) {
     //transaction é pq a operação n pode parar no meio, a lá BD relacional
@@ -115,3 +116,4 @@ function removeUser(id) {
         alert("Usuário deletado.");
     };
 }
+*/

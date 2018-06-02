@@ -1,27 +1,59 @@
 
+<h2 class="blue-text darken-3">Cuidados</h2>
 <div class="service-list">
-    <h2 class="blue-text darken-3">Cuidados</h2>
-
-    <div class="row">
-        <div class="service item-card clearfix">
-            <div class="item-img col s3">
-                <img src="images/services/dog-grooming.png">
-            </div>
-            <div class="item-description col s6">
-                <h5 class="item-title">Banho + Tosa - Cães</h5>
-                <p class="item-subtitle">Sujeito à disponibilidade de horário</p>
-            </div>
-            <div class="col s3">
-                <div class="item-price right-align">
-                    <span class="price">
-                        <h4 class="value">R$ 40,00</h4>
-                        <p class="installments">em até 10x s/ juros</p>
-                    </span>
-                </div>
-                <div class="v-space"></div>
-                <button class="waves-effect waves-light btn right">Agendar</button>
-            </div>
-        </div>
-    </div>
 
 </div>
+
+<script>
+    var serviceCardHtmlTemplate = `
+        <div class="row">
+            <div class="service item-card clearfix">
+                <div class="item-img col s3">
+                    <img src="{{image}}" onerror="this.src='images/default.jpg';">
+                </div>
+                <div class="item-description col s6">
+                    <h5 class="item-title">{{name}}</h5>
+                    <p class="item-subtitle">Duração: {{duration}} {{unit}}</p>
+                    <p class="item-subtitle">Sujeito à disponibilidade de horário</p>
+                </div>
+                <div class="col s3">
+                    <div class="item-price right-align">
+                        <span class="price">
+                            <h4 class="value">R$ {{price}}</h4>
+                            <p class="installments">em até 10x s/ juros</p>
+                        </span>
+                    </div>
+                    <div class="v-space"></div>
+                    <button onclick="scheduleService({{id}})" class="waves-effect waves-light btn right">Agendar</button>
+                </div>
+            </div>
+        </div>`
+    
+    getServices();
+
+    updateServices = (servicesList) => {
+        let servicesHtml = '';
+        $('.service-list').empty();
+
+        $.each(servicesList, (i, obj) => {
+            let serviceCardHtml = serviceCardHtmlTemplate;
+            for (var key in obj) {
+                if (key == 'image_id') {
+                    obj[key] = (obj[key] == undefined) ? 21 : obj[key];
+                    serviceCardHtml = serviceCardHtml.split('{{image}}').join(initialImageSrc[obj[key]])
+                } else if (obj.hasOwnProperty(key)) {
+                    if (key == 'price') {
+                        serviceCardHtml = serviceCardHtml.split(`{{${key}}}`).join(obj[key].toFixed(2));
+                    } else {
+                        serviceCardHtml = serviceCardHtml.split(`{{${key}}}`).join(obj[key]);
+                    }
+                }
+            }
+            servicesHtml += serviceCardHtml;
+        });
+        
+        $('.service-list').html(servicesHtml);
+    }
+
+
+</script>
