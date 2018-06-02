@@ -1,30 +1,76 @@
 // população inicial de usuários
 const initialUsers = [
-    { id: 0, role: 'admin', name: "Adminstrador", lastname: "do Sistema", email: "admin@t.co", password: 'admin', telephone: "(16)98888-8888", address: "Av. Brasil, 1111 - Centro, São Carlos - SP" },
-    { id: 1, role: 'user', name: "Rafael", lastname: "Bastos", email: "rb@t.co", password: 'qwe123', telephone: "(16)3553-5521", address: "Av. São Carlos, 2911 - Centro, São Carlos - SP" },
-    { id: 2, role: 'user', name: "Dummy", lastname: "User", email: "dummy@t.co", password: 'qwe123', telephone: "(16)3553-5521", address: "Av. São Carlos, 2911 - Centro, São Carlos - SP" },
-    { id: 3, role: 'user', name: "Bernardo", lastname: "Duarte", email: "berna@t.co", password: 'qwe123', telephone: "(16)3553-5521", address: "Av. São Carlos, 2911 - Centro, São Carlos - SP" },
-    { id: 4, role: 'user', name: "Giovani", lastname: "Ortolani", email: "gepeto@t.co", password: 'qwe123', telephone: "(16)3553-5521", address: "Av. São Carlos, 2911 - Centro, São Carlos - SP" },
-    { id: 5, role: 'user', name: "Jorge", lastname: "Vilaça", email: "jorge@t.co", password: 'qwe123', telephone: "(16)3553-5521", address: "Av. São Carlos, 2911 - Centro, São Carlos - SP" },
-    { id: 6, role: 'user', name: "Nicolas", lastname: "Leite", email: "gg@t.co", password: 'qwe123', telephone: "(16)3553-5521", address: "Av. São Carlos, 2911 - Centro, São Carlos - SP" },
+    { id: 0, role: 'admin', profile_image: {}, image_id: 0, name: "Adminstrador", lastname: "do Sistema", email: "admin@t.co", password: 'admin', telephone: "(16)98888-8888", address: "Av. Brasil, 1111 - Centro, São Carlos - SP" },
+    { id: 1, role: 'user', profile_image: {}, image_id: 5, name: "Rafael", lastname: "Bastos", email: "rb@t.co", password: 'qwe123', telephone: "(16)3553-5521", address: "Av. São Carlos, 2911 - Centro, São Carlos - SP" },
+    { id: 2, role: 'user', profile_image: {}, image_id: 0, name: "Dummy", lastname: "User", email: "dummy@t.co", password: 'qwe123', telephone: "(16)3553-5521", address: "Av. São Carlos, 2911 - Centro, São Carlos - SP" },
+    { id: 3, role: 'user', profile_image: {}, image_id: 1, name: "Bernardo", lastname: "Duarte", email: "berna@t.co", password: 'qwe123', telephone: "(16)3553-5521", address: "Av. São Carlos, 2911 - Centro, São Carlos - SP" },
+    { id: 4, role: 'user', profile_image: {}, image_id: 3, name: "Giovani", lastname: "Ortolani", email: "gepeto@t.co", password: 'qwe123', telephone: "(16)3553-5521", address: "Av. São Carlos, 2911 - Centro, São Carlos - SP" },
+    { id: 5, role: 'user', profile_image: {}, image_id: 4, name: "Jorge", lastname: "Vilaça", email: "jorge@t.co", password: 'qwe123', telephone: "(16)3553-5521", address: "Av. São Carlos, 2911 - Centro, São Carlos - SP" },
+    { id: 6, role: 'user', profile_image: {}, image_id: 0, name: "Nicolas", lastname: "Leite", email: "gg@t.co", password: 'qwe123', telephone: "(16)3553-5521", address: "Av. São Carlos, 2911 - Centro, São Carlos - SP" },
 ];
 
 // população inicial de pets
 const initialPets = [
-    { id: 0, owner_id: 1, name: "Bilu", species: "Cão - Poodle", age: 4, unit: 'anos' },
-    { id: 1, owner_id: 1, name: "Orley", species: "Pássaro - Calopsita", age: 7, unit: 'anos' },
-    { id: 2, owner_id: 1, name: "Nemo", species: "Peixe - Beta", age: 6, unit: 'meses' },
-    { id: 3, owner_id: 1, name: "Hantaro", species: "Hamster", age: 1, unit: 'anos' },
-    { id: 4, owner_id: 1, name: "Carlos", species: "Cobra", age: 5, unit: 'anos' },
-    { id: 5, owner_id: 2, name: "Nina", species: "Cão - Poodle", age: 2, unit: 'anos' },
-    { id: 6, owner_id: 3, name: "Bastião", species: "Cão - Bulldog", age: 10, unit: 'anos' },
-    { id: 7, owner_id: 3, name: "Zé", species: "Cão - Cocker", age: 17, unit: 'anos' },
-    { id: 8, owner_id: 3, name: "Bráulio", species: "Cão - Pincher", age: 2, unit: 'anos' },
+    { id: 0, owner_id: 1, image_id: 7, name: "Bilu", species: "Cão - Poodle", age: 4, unit: 'anos' },
+    { id: 1, owner_id: 1, image_id: 6, name: "Orley", species: "Pássaro - Calopsita", age: 7, unit: 'anos' },
+    { id: 2, owner_id: 1, image_id: 8, name: "Nemo", species: "Peixe - Beta", age: 6, unit: 'meses' },
+    { id: 3, owner_id: 1, image_id: 9, name: "Hantaro", species: "Hamster", age: 1, unit: 'anos' },
+    { id: 4, owner_id: 1, image_id: 10, name: "Carlos", species: "Cobra", age: 5, unit: 'anos' },
+    { id: 5, owner_id: 2, image_id: 7, name: "Nina", species: "Cão - Poodle", age: 2, unit: 'anos' },
+    { id: 6, owner_id: 3, image_id: 7, name: "Bastião", species: "Cão - Bulldog", age: 10, unit: 'anos' },
+    { id: 7, owner_id: 3, image_id: 7, name: "Zé", species: "Cão - Cocker", age: 17, unit: 'anos' },
+    { id: 8, owner_id: 3, image_id: 7, name: "Bráulio", species: "Cão - Pincher", age: 2, unit: 'anos' },
+];
+
+const initialProducts = [
+
+]
+
+const initialServices = [
+
+]
+
+// Caminho para imagens iniciais a serem transformadas em array buffer no indexedDB
+const initialImageSrc = [
+    'images/profile/default.jpg',
+    'images/profile/bernardo.jpg',
+    'images/profile/dilvan.jpg',
+    'images/profile/giovani.jpg',
+    'images/profile/jorge.jpg',
+    'images/profile/rafael.jpg',    // 5
+    'images/pets/bird.jpg',
+    'images/pets/dog.jpg',
+    'images/pets/fish.jpg',
+    'images/pets/hamster.jpg',
+    'images/pets/snake.jpg',    // 10
+    'images/pets/default.jpg',
+    'images/products/bird-cage.jpg',
+    'images/products/dog-bone-toy.jpg',
+    'images/products/dog-food.jpg',
+    'images/products/fish-bowl.jpg',    // 15
+    'images/products/litter-box.jpg',
+    'images/services/cat-grooming.jpg',
+    'images/services/dog-grooming.jpg',
+    'images/services/vaccine.jpg',
+    'images/services/veterinarian.png', // 20
 ];
 
 var db
 const dbname = "petshop_Grupo2"
 const request = window.indexedDB.open(dbname, 1);
+
+// Initialize user images
+addArrayBufferToUsers = () => {
+    for (let user of initialUsers) {
+        imageToArrayBuffer(initialImageSrc[user.image_id], (arrBuff) => {
+            user['profile_image'] = arrBuff;
+
+            // update user image (as array buffer)
+            let objectStore = db.transaction(["users"], "readwrite").objectStore("users");
+            objectStore.put(user);
+        });
+    }
+}
 
 //erro na request de abrir o db
 request.onerror = function(err) {
@@ -38,6 +84,7 @@ request.onsuccess = function(event) {
 //sempre chamada quando o bd é criado, costuma ser usada pra estruturar e dar o povoamento inicial
 request.onupgradeneeded = (event) => {
     db = event.target.result;
+
     const userStore = db.createObjectStore("users", {keyPath: "id"});
     userStore.createIndex('email', 'email', {unique: true});
 
@@ -50,6 +97,8 @@ request.onupgradeneeded = (event) => {
     for (let i in initialPets) {
         petStore.add(initialPets[i]);
     }
+    
+    addArrayBufferToUsers();
 }
 
 //limpa o bd

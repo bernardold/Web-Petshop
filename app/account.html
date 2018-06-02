@@ -48,11 +48,11 @@
 </div>    
 
 <script>
-    const petCardHtmlTemplate = `
+    var petCardHtmlTemplate = `
         <div class="col s12 l6">
             <div class="card horizontal">
                 <div class="card-image">
-                    <img class="" src="images/pets/dog.jpg">
+                    <img src="{{image}}">
                 </div>
                 <div class="card-stacked">
                     <div class="card-content">
@@ -73,12 +73,25 @@
             </div>
         </div>`
 
+
     if (loggedUser) {
         $('.profile-info .info-name .value').html(loggedUser.name);
         $('.profile-info .info-lastname .value').html(loggedUser.lastname);
         $('.profile-info .info-email .value').html(loggedUser.email);
         $('.profile-info .info-phone .value').html(loggedUser.telephone);
         $('.profile-info .info-address .value').html(loggedUser.address);
+        loggedUser.image_id = (loggedUser.image_id == undefined) ? 0 : loggedUser.image_id;
+        $('.profile-img img').attr('src', initialImageSrc[loggedUser.image_id])
+
+        // get the image src from array buffer and set to the image src
+        /* Não consegui fazer funcionar
+        if (loggedUser.profile_image) {
+            arrayBufferToObjectUrl(loggedUser.profile_image, (objUrl) => {
+                console.log(objUrl);
+                $('.profile-img img').attr('src', objUrl, () => { window.URL.revokeObjectURL(objUrl) });
+            });
+        }
+        */
 
         getPetsByUser(loggedUser.id);
     }
@@ -88,9 +101,12 @@
         $('.pets-list').empty();
 
         $.each(petsList, (i, obj) => {
-            let petCardHtml = petCardHtmlTemplate; 
+            let petCardHtml = petCardHtmlTemplate;
             for (var key in obj) {
-                if (obj.hasOwnProperty(key)) {
+                if (key == 'image_id') {
+                    obj[key] = (obj[key] == undefined) ? 11 : obj[key];
+                    petCardHtml = petCardHtml.split('{{image}}').join(initialImageSrc[obj[key]])
+                } else if (obj.hasOwnProperty(key)) {
                     petCardHtml = petCardHtml.split(`{{${key}}}`).join(obj[key]);
                 }
             }
