@@ -41,31 +41,6 @@
                 <button class="waves-effect waves-light btn add-pet-button right">Adicionar</button>
                 <h2 class="blue-text darken-3"> Meus Pets </h2>
                 <div class="pets-list row">
-        
-                    <div class="col s12 l6">
-                        <div class="card horizontal">
-                            <div class="card-image">
-                                <img class="" src="images/pets/dog.jpg">
-                            </div>
-                            <div class="card-stacked">
-                                <div class="card-content">
-                                    <div class="info">
-                                        <div class="blue-text darken-3 label"><b>Nome</b></div>
-                                        <div class="value">{{name}}</div>
-                                    </div>
-                                    <div class="info">
-                                        <div class="blue-text darken-3 label"><b>Espécia / Raça</b></div>
-                                        <div class="value">{{species}}</div>
-                                    </div>
-                                    <div class="info">
-                                        <div class="blue-text darken-3 label"><b>Idade</b></div>
-                                        <div class="value">{{age}} <span>{{unit}}</span></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </div>
@@ -73,11 +48,31 @@
 </div>    
 
 <script>
-    const petCardHtmlTemplate = '<div class="col s12 l6"><div class="card horizontal"><div class="card-image"><img class="" src="images/pets/dog.jpg"></div>' +
-                        '<div class="card-stacked"><div class="card-content"><div class="info"><div class="blue-text darken-3 label"><b>Nome</b></div>' +
-                        '<div class="value">{{name}}</div></div><div class="info"><div class="blue-text darken-3 label"><b>Espécia / Raça</b></div><div class="value">{{species}}</div>' +
-                        '</div><div class="info"><div class="blue-text darken-3 label"><b>Idade</b></div><div class="value">{{age}} <span>{{unit}}</span></div>' +
-                        '</div></div></div></div></div>'
+    const petCardHtmlTemplate = `
+        <div class="col s12 l6">
+            <div class="card horizontal">
+                <div class="card-image">
+                    <img class="" src="images/pets/dog.jpg">
+                </div>
+                <div class="card-stacked">
+                    <div class="card-content">
+                        <div class="info">
+                            <div class="blue-text darken-3 label"><b>Nome</b></div>
+                            <div class="value">{{name}}</div>
+                        </div>
+                        <div class="info">
+                            <div class="blue-text darken-3 label"><b>Espécia / Raça</b></div>
+                            <div class="value">{{species}}</div>
+                        </div>
+                        <div class="info">
+                            <div class="blue-text darken-3 label"><b>Idade</b></div>
+                            <div class="value">{{age}} <span>{{unit}}</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>`
+
     if (loggedUser) {
         $('.profile-info .info-name .value').html(loggedUser.name);
         $('.profile-info .info-lastname .value').html(loggedUser.lastname);
