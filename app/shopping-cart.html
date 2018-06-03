@@ -3,50 +3,6 @@
     <h2 class="blue-text darken-3">Carrinho de Compras</h2>
     <div class="row">
         <div class="cart-products col s12 l9">
-
-            <div class="row">
-                <div class="col s12">
-                    <div class="item-card clearfix">
-                        <div class="item-img col s3">
-                            <img src="images/products/dog-food.jpg">
-                        </div>
-                        <div class="item-description col s6">
-                            <h5 class="item-title">Ração para cachorro - Adulto - Pedigree</h5>
-                            <p class="item-subtitle">Valor: R$100,00</p>
-                        </div>
-                        <div class="col s3 right-align">
-                            <div class="input-field product-amount col s12">
-                                <input id="qtd-input-0" name="qtd-input-0" type="number" value="1" min="1" max="999"/>
-                                <label for="qtd-input-0">Quantidade</label>
-                            </div>
-                            <div class="v-space"></div>
-                            <button class="waves-effect waves-light btn red remove-cart-button">Remover</button>
-                        </div>
-                    </div>        
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col s12">
-                    <div class="item-card clearfix">
-                        <div class="item-img col s3">
-                            <img src="images/products/dog-bone-toy.jpg">
-                        </div>
-                        <div class="item-description col s6">
-                            <h5 class="item-title">Brinquedo para cachorro - Osso</h5>
-                            <p class="item-subtitle">Valor: R$20,00</p>
-                        </div>
-                        <div class="col s3 right-align">
-                            <div class="input-field product-amount col s12">
-                                <input id="qtd-input-1" name="qtd-input-1" type="number" value="2" min="1" max="999"/>
-                                <label for="qtd-input-1">Quantidade</label>
-                            </div>
-                            <div class="v-space"></div>
-                            <button class="waves-effect waves-light btn red remove-cart-button">Remover</button>
-                        </div>
-                    </div>        
-                </div>
-            </div>
         </div>
 
         <div class="hide-on-large-only col s12">
@@ -62,8 +18,8 @@
             <div class="item-card clearfix">
                 <div class="col s12">
                     <div class="total">
-                        <b>Total:</b> <b class="blue-text darken-3 right">R$140,00</b>
-                        <small class="description grey-text">(3&nbsp;produtos)</small>
+                        <b>Total:</b> <b class="blue-text darken-3 right">R$<span id="cart-total-price">0,00</span></b>
+                        <small class="description grey-text">(<span id="cart-total-items">X</span>&nbsp;produtos)</small>
                     </div>
                     <div class="v-space"></div>
                     <div class="v-space"></div>
@@ -76,3 +32,82 @@
     </div>
 
 </div>
+
+<script>
+    var cartCardHtmlTemplate = `
+        <div class="row">
+            <div class="col s12">
+                <div class="item-card clearfix">
+                    <div class="item-img col s3">
+                        <img src="{{image}}">
+                    </div>
+                    <div class="item-description col s6">
+                        <h5 class="item-title">{{product_name}}</h5>
+                        <p class="item-subtitle">Valor: R$ {{product_price}}</p>
+                    </div>
+                    <div class="col s3 right-align">
+                        <div class="input-field product-amount col s12">
+                            <input oninput="updateCart({{id}}, this.value)" id="qtd-input-{{id}}" name="qtd-input-0" type="number" value="{{amount}}" min="1" max="999"/>
+                            <label for="qtd-input-{{id}}" class="active">Quantidade</label>
+                        </div>
+                        <div class="v-space"></div>
+                        <button onclick="confirmRemoveFromCart({{id}})" class="waves-effect waves-light btn red remove-cart-button">Remover</button>
+                    </div>
+                </div>        
+            </div>
+        </div>`
+
+    updateCartProducts = (productsList) => {
+        let cartHtml = '';
+        let totalItems = 0;
+        let totalPrice = 0;
+        $('.cart-products').empty();
+
+        $.each(productsList, (i, obj) => {
+            let cartCardHtml = cartCardHtmlTemplate;
+            for (var key in obj) {
+                if (key == 'product_image_id') {
+                    obj[key] = (obj[key] == undefined) ? 21 : obj[key];
+                    cartCardHtml = cartCardHtml.split('{{image}}').join(initialImageSrc[obj[key]])
+                } else if (obj.hasOwnProperty(key)) {
+                    if (key == 'product_price') {
+                        cartCardHtml = cartCardHtml.split(`{{${key}}}`).join(obj[key].toFixed(2));
+                    } else {
+                        cartCardHtml = cartCardHtml.split(`{{${key}}}`).join(obj[key]);
+                    }
+                }
+            }
+            cartHtml += cartCardHtml;
+            totalItems += obj.amount;
+            totalPrice += (obj.amount * obj.product_price);
+        });
+        
+        $('.cart-products').html(cartHtml);
+        $('#cart-total-price').html(totalPrice.toFixed(2));
+        $('#cart-total-items').html(totalItems);
+
+        updateNavbar();
+    }
+    getCartProductsByUserId(loggedUser.id, updateCartProducts);
+
+    updateCart = (id, value) => {
+        if (value <= 0) {
+            confirmRemoveFromCart(id);
+        } else {
+            getCartProductsByUserId(loggedUser.id, (productsList) => {
+                product = productsList.find(p => (p.id == id))
+                product.amount = parseInt(value);
+                updateProductInCart(product);
+
+                updateCartProducts(productsList);
+            })
+        }
+    }
+
+    confirmRemoveFromCart = (id) => {
+        let conf = confirm("Tem certeza que deseja remover do carrinho?")
+        if (conf) {
+            removeFromCart(id, loggedUser.id, updateCartProducts);
+        }
+    }
+</script>

@@ -28,13 +28,18 @@ const initialProducts = [
     { id: 2, image_id: 14, name: 'Ração para cães - Adulto - Pedigree', price: 100.0, amount: 1337 },
     { id: 3, image_id: 15, name: 'Aquário para peixes - Pequeno', price: 70.0, amount: 20 },
     { id: 4, image_id: 16, name: 'Caixa de areia para gatos', price: 80.0, amount: 30 },
-]
+];
 
 const initialServices = [
     { id: 0, image_id: 17, name: 'Banho + Tosa - Gatos', price: 40.0, duration: 1, unit: 'horas' },
     { id: 1, image_id: 18, name: 'Banho + Tosa - Cães', price: 40.0, duration: 1, unit: 'horas' },
     { id: 2, image_id: 19, name: 'Vacina', price: 20.0, duration: 30, unit: 'minutos' },
     { id: 3, image_id: 20, name: 'Atendimento veterinários', price: 150.0, duration: 1, unit: 'horas' },
+];
+
+const initialCart = [
+    { id: 0, user_id: 1, product_id: 2, product_image_id: 14, product_name: 'Ração para cães - Adulto - Pedigree', product_price: 100.0, amount: 1 },
+    { id: 1, user_id: 1, product_id: 1, product_image_id: 13, product_name: 'Brinquedo para cães - Osso', product_price: 25.0, amount: 2 },
 ]
 
 // Caminho para imagens iniciais a serem transformadas em array buffer no indexedDB
@@ -102,6 +107,10 @@ request.onupgradeneeded = (event) => {
     const productStore = db.createObjectStore("products", {keyPath: "id"});
     const serviceStore = db.createObjectStore("services", {keyPath: "id"});
 
+    const cartStore = db.createObjectStore("cart", {keyPath: "id", autoIncrement: true});
+    cartStore.createIndex('user_id', 'user_id', {unique: false});
+    cartStore.createIndex('product_id', 'product_id', {unique: false});
+
     for (let i in initialUsers) {
         userStore.add(initialUsers[i]);
     }
@@ -113,6 +122,9 @@ request.onupgradeneeded = (event) => {
     }
     for (let i in initialServices) {
         serviceStore.add(initialServices[i]);
+    }
+    for (let i in initialCart) {
+        cartStore.add(initialCart[i]);
     }
 
     // To save images as Array Buffer in indexedDB

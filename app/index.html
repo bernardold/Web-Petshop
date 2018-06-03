@@ -17,6 +17,7 @@
         <script src="scripts/db/service.js"></script>
         <script src="scripts/db/user.js"></script>
         <script src="scripts/db/pet.js"></script>
+        <script src="scripts/db/cart.js"></script>
         <script src="scripts/navigation.js"></script>
         
         <title>Pet-Shop - Home</title>
@@ -36,7 +37,7 @@
                             <li><a class="nav-management" href="#">Administrar</a></li>
                             <li><a class="nav-account" href="#">Nome do Usuário</a></li>
                             <li><a class="nav-login" href="#">Entrar</a></li>
-                            <li><a class="nav-cart" href="#"><i class="material-icons">shopping_cart</i></a></li>
+                            <li><a class="nav-cart" href="#"><span class="material-icons">shopping_cart</span><span class="new badge red cart-count" data-badge-caption="">X</span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -47,7 +48,7 @@
                     <div class="background">
                         <img src="images/sidenav-bkg.jpg">
                     </div>
-                    <a href="#"><img class="nav-account circle" src="images/profile/rafael.jpg"></a>
+                    <a href="#"><img id="sidenav-profile-img" class="nav-account circle" src="images/profile/rafael.jpg"></a>
                     <a href="#"><b class="nav-account white-text">Rafael</b></a>
                 </div></li>
                 <li><a class="nav-store" href="#">Loja</a></li>
@@ -55,7 +56,7 @@
                 <li><a class="nav-management" href="#">Administrar</a></li>
                 <li><a class="nav-login" href="#">Entrar</a></li>
                 <li><div class="divider"></div></li>
-                <li><a class="nav-cart" href="#">Carrinho</a></li>
+                <li><a class="nav-cart" href="#">Carrinho<span class="new badge red cart-count" data-badge-caption="itens">X</span></a></li>
             </ul>
 
         </header>

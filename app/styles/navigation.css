@@ -9,3 +9,11 @@ nav .nav-wrapper a.brand-logo img.logo-img {
     height: 120px;
 }
 
+nav .nav-wrapper #nav .nav-cart span.badge {
+    min-width: unset;
+    margin-left: -10px;
+    border-radius: 50%;
+    line-height: 18px;
+    height: 18px;
+}
+

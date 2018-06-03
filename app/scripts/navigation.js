@@ -47,6 +47,8 @@ updateNavbar = () => {
         if (loggedUser.role == 'admin') {
             $(".nav-management").show();
         }
+        
+        countCartProductsByUserId(loggedUser.id);
     } else {
         $(".nav-store").hide();
         $(".nav-services").hide();
@@ -54,4 +56,5 @@ updateNavbar = () => {
         $(".nav-cart").hide();
         $(".nav-login").show();
     }
+
 }

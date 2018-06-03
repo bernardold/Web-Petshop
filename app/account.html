@@ -81,7 +81,8 @@
         $('.profile-info .info-phone .value').html(loggedUser.telephone);
         $('.profile-info .info-address .value').html(loggedUser.address);
         loggedUser.image_id = (loggedUser.image_id == undefined) ? 0 : loggedUser.image_id;
-        $('.profile-img img').attr('src', initialImageSrc[loggedUser.image_id])
+        $('.profile-img img').attr('src', initialImageSrc[loggedUser.image_id]);
+        $('#sidenav-profile-img').attr('src', initialImageSrc[loggedUser.image_id]);
 
         // get the image src from array buffer and set to the image src
         /* Não consegui fazer funcionar

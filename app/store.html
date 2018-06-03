@@ -53,4 +53,19 @@
 
     getStoreProducts(updateProducts);
 
+    addProductToCart = (id) => {
+        const cartProduct = { user_id: loggedUser.id, product_id: id, amount: 1 };
+        getStoreProducts((productsList) => {
+            product = productsList.find(p => (p.id == id));
+            cartProduct['product_image_id'] = product.image_id;
+            cartProduct['product_name'] = product.name;
+            cartProduct['product_price'] = product.price;
+
+            addToCart(cartProduct);
+
+            updateNavbar();
+        });
+        
+    }
+
 </script>
