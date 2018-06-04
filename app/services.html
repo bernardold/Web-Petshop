@@ -5,6 +5,13 @@
 </div>
 
 <script>
+	
+	function setService(id){
+		var id_service = id;
+		console.log(id_service);
+        $("#page-content").load("schedule.html");
+    }
+		    
     var serviceCardHtmlTemplate = `
         <div class="row">
             <div class="service item-card clearfix">
@@ -24,11 +31,11 @@
                         </span>
                     </div>
                     <div class="v-space"></div>
-                    <button onclick="scheduleService({{id}})" class="waves-effect waves-light btn right">Agendar</button>
+                    <button onclick="setService({{id}})" class="waves-effect waves-light btn right nav-schedule">Agendar</button>
                 </div>
             </div>
         </div>`
-
+        
     updateServices = (servicesList) => {
         let servicesHtml = '';
         $('.service-list').empty();
@@ -51,8 +58,11 @@
         });
         
         $('.service-list').html(servicesHtml);
+        
     }
-    
+       
     getServices(updateServices);
+    
+    
 
 </script>

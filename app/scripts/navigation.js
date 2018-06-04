@@ -29,6 +29,10 @@ $(() => {
     $(".nav-login").click(() => {
         $("#page-content").load("login.html");
     });
+    $(".nav-schedule").click(() => {
+		console.log("grr");
+        $("#page-content").load("schedule.html");
+    });
 })
 
 updateNavbar = () => {

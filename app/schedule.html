@@ -1,0 +1,71 @@
+
+<h2 class="blue-text darken-3">Agendamento</h2>
+<div class="service-list">
+	<div class="container">
+		<div class="item-img col s3">
+			<img src="{{image}}" onerror="this.src='images/default.jpg';">
+		</div>
+		<div class="item-description col s6">
+			<h5 class="item-title"><!--{{name}}--></h5>
+			<p class="item-subtitle"><!--Duração: {{duration}} {{unit}}--></p>
+			<p class="item-subtitle"><!--Sujeito à disponibilidade de horário--></p>
+		</div>
+		<div class="col s3">
+			<div class="item-price right-align">
+				<span class="price">
+					<h4 class="value"><!--R$ {{price}}--></h4>
+					<p class="installments">em até 10x s/ juros</p>
+				</span>
+			</div>
+			
+		</div>
+		<div class="col s6">
+			<input id="timepicker" type="text" class="timepicker">
+			<label for="timepicker">Escolha a hora</label>
+			<input id="datepicker" type="text" class="datepicker">
+			<label for="datepicker">Escolha a data</label>
+		</div>
+		
+		<button class="waves-effect waves-light btn right nav-schedule">Confirmar</button>
+	</div>	
+</div>
+
+<script>
+	
+	updateServices = (servicesList) => {
+        let servicesHtml = '';
+        $('.service-list').empty();
+
+        $.each(servicesList, (i, obj) => {
+            let serviceCardHtml = serviceCardHtmlTemplate;
+            for (var key in obj) {
+                if (key == 'image_id') {
+                    obj[key] = (obj[key] == undefined) ? 21 : obj[key];
+                    serviceCardHtml = serviceCardHtml.split('{{image}}').join(initialImageSrc[obj[key]])
+                } else if (obj.hasOwnProperty(key)) {
+                    if (key == 'price') {
+                        serviceCardHtml = serviceCardHtml.split(`{{${key}}}`).join(obj[key].toFixed(2));
+                    } else {
+                        serviceCardHtml = serviceCardHtml.split(`{{${key}}}`).join(obj[key]);
+                    }
+                }
+            }
+            servicesHtml += serviceCardHtml;
+        });
+        
+        $('.service-list').html(servicesHtml);
+        
+    }
+       
+    getService(updateServices);
+		
+	$(document).ready(function(){
+		$('select').formSelect();
+	});
+	$(document).ready(function(){
+		$('.datepicker').datepicker();
+	});
+	$(document).ready(function(){
+		$('.timepicker').timepicker();
+	});
+</script>
