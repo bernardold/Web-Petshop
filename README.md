@@ -15,6 +15,9 @@ Construção de aplicação web para uma Petshop. A loja do cliente vende pets, 
 A aplicação deve gerenciar pets e produtos vendidos, controle do estoque, além de permitir ao usuário agendar serviços para o seu pet.
 
 ## TODO
-+ Faltou somente uma tela na administração para que os administradores sejam capazes de reagendar e cancelar serviços 
-+ Tela de login porque vão precisar
-+ Telas de edição e cadastro de produtos, serviços, pets e usuários
++ Fluxo de agendamento de cuidados/serviços
++ Telas de adição/edição
+  + Usuários;
+  + Pets;
+  + Produtos;
+  + Cuidados
