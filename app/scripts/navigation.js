@@ -2,14 +2,13 @@ $(() => {
     // default page to load
     $("#page-content").load("home.html");
     //checkLogin();
-    updateNavbar();
+    //updateNavbar();
 
     // Set mobile sidenav
     $('.sidenav').sidenav();
 
     // load pages dynamically
     $(".nav-home").click(() => {
-        console.log(1231);
         $("#page-content").load("home.html");
     });
     $(".nav-store").click(() => {
