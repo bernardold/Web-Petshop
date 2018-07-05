@@ -1,7 +1,7 @@
 $(() => {
     // default page to load
     $("#page-content").load("home.html");
-    checkLogin();
+    //checkLogin();
     updateNavbar();
 
     // Set mobile sidenav
@@ -9,6 +9,7 @@ $(() => {
 
     // load pages dynamically
     $(".nav-home").click(() => {
+        console.log(1231);
         $("#page-content").load("home.html");
     });
     $(".nav-store").click(() => {
@@ -35,26 +36,24 @@ updateNavbar = () => {
     $(".nav-home").show();
     $(".nav-management").hide();
 
-    if (loggedUser) {
+    //if (loggedUser) {
         $(".nav-account").show();
         $(".nav-store").show();
         $(".nav-services").show();
         $(".nav-cart").show();
         $(".nav-login").hide();
-
-        $(".nav-account").html(loggedUser.name);
         
-        if (loggedUser.role == 'admin') {
+    //    if (loggedUser.role == 'admin') {
             $(".nav-management").show();
-        }
+    //    }
         
-        countCartProductsByUserId(loggedUser.id);
-    } else {
-        $(".nav-store").hide();
-        $(".nav-services").hide();
-        $(".nav-account").hide();
-        $(".nav-cart").hide();
-        $(".nav-login").show();
-    }
+    //    countCartProductsByUserId(loggedUser.id);
+    //} else {
+    //    $(".nav-store").hide();
+    //    $(".nav-services").hide();
+    //    $(".nav-account").hide();
+    //    $(".nav-cart").hide();
+    //    $(".nav-login").show();
+    //}
 
 }
