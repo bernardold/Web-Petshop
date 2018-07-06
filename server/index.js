@@ -140,12 +140,12 @@ app.get("/api/:owner_id/getPetsByUser", function(request, response){
 					petsList.push(row.doc);
 				}
 			});
+			response.send(petsList);
 		}
 		else{
 			let erro = {"message": "Erro ao recuperar pets do usuario"};
 			response.send(erro);
 		}
-		response.send(petsList);
 	});
 });
 
@@ -174,17 +174,17 @@ app.get("/api/getProducts", function(request, response){
 			body.rows.forEach(function(row){
 				productsList.push(row.doc);
 			});
+			response.send(productsList);
 		}
 		else {
 			let erro = {"message": "Erro ao recuperar produtos"};
 			response.send(erro);
 		}
-		response.send(productsList);
 	});
 });
 
 //GET PRODUCTS BY ID: feito mais ou menos 
-app.get("/api/:id/getProductById", function(request, response){
+app.get("/api/:id/getProductById/", function(request, response){
 	let req = request.params;
 
 	products.getProductById(req.id, (err, body) => {
@@ -310,6 +310,62 @@ app.delete("/api/:id/removeService", function(request, response){
 	});
 });
 
+// ADD TO CART
+app.put("/api/:user_id/:product_id/:product_name/:product_price/addToCart", function(request, response){
+	
+	let req = request.params;
+	let cartID = undefined;
+	let cartRev = undefined;
+	let amount = undefined;
+
+	cart.getCartProductsByUserId(function(err, body){
+		if (!err) {
+			body.rows.forEach(function(row){
+				if(row.doc.user_id === req.user_id) {
+					if(row.doc.product_id === req.product_id){
+						cartID = row.doc._id;
+						cartRev	= row.doc._rev;
+						amount = row.doc.amount;
+					}
+				}
+			});
+			
+			if (typeof cartID !== 'undefined') {
+				req._id = cartID;
+				req._rev = cartRev;
+				req.amount = amount + 1;
+				cart.updateCart(req, function(err, body) {
+					if (err) {
+						let erro = {"message": "erro ao inserir produto no carrinho"};
+						response.send(erro);
+					}
+					else {
+						response.send({"message": "adicionado mais um " + req.product_name + " ao carrinho", "ok": true});
+					}
+				});
+			}
+
+			else {
+				req.amount = 1;
+				cart.addToCart(req, function(err, body) {
+					if (err) {
+						let erro = {"message": "erro ao inserir produto no carrinho"};
+						response.send(erro);
+					}
+					else {
+						response.send({"message": "adicionado um novo item ao carrinho", "ok": true});
+					}
+				});
+			}
+		}
+		else{
+			let erro = {"message": "Erro ao recuperar productos do carrinho do usuario"};
+			response.send(erro);
+		}
+	});
+});
+
+// COUNT CART PRODUCTS BY USER ID
 app.get("/api/:user_id/countCartProductsByUserId", function(request, response){
 	let req = request.params;
 
@@ -321,8 +377,34 @@ app.get("/api/:user_id/countCartProductsByUserId", function(request, response){
 					productsCount++;
 				}
 			});
+
+			response.send({"productsCountByUser": productsCount});
 		}
-		response.send(productsList);
+		else {
+			let erro = {"message": "Erro ao recuperar o numero de produtos"};
+			response.send(erro);
+		}
+	});
+});
+
+// GET CART PRODUCTS BY USER ID
+app.get("/api/:user_id/getCartProductsByUserId", function(request, response){
+	let req = request.params;
+
+	cart.getCartProductsByUserId(function(err, body){
+		let productsList = [];
+		if (!err) {
+			body.rows.forEach(function(row){
+				if(row.doc.user_id === req.user_id) {
+					productsList.push(row.doc);
+				}
+			});
+			response.send(productsList);
+		}
+		else{
+			let erro = {"message": "Erro ao recuperar productos do carrinho do usuario"};
+			response.send(erro);
+		}
 	});
 });
 
