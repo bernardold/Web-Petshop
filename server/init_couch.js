@@ -1,6 +1,6 @@
 let async = require('async');  
 let couch = require('./couchdb');
-let databases = ['users', 'pets', 'products', 'services', 'carts'];
+let databases = ['users', 'pets', 'products', 'services', 'cart'];
 
 module.exports = initCouch;
 function initCouch(cb) {  

@@ -101,7 +101,7 @@ app.delete("/api/:id/removeUser", function(request, response){
 						if(row.doc.owner_id === req.id) {
 							pets.removePet(row.doc._id, row.doc._rev, (err, body) => {
 								if(err) {
-									let erro = {"message": "Erro na remocao dos pets de um user"};
+									let erro = {"message": "Erro na remocao do pet"};
 									response.send(erro);
 								}
 							});
@@ -117,6 +117,10 @@ app.delete("/api/:id/removeUser", function(request, response){
 			users.removeUser(req.id, rev, (err, body) => {
 				if(!err){
 					response.send(body);
+				}
+				else{
+					let erro = {"message": "Erro ao remover usuario"};
+					response.send(erro);
 				}
 			});
 		}
@@ -136,6 +140,10 @@ app.get("/api/:owner_id/getPetsByUser", function(request, response){
 				}
 			});
 		}
+		else{
+			let erro = {"message": "Erro ao recuperar pets do usuario"};
+			response.send(erro);
+		}
 		response.send(petsList);
 	});
 });
@@ -146,7 +154,8 @@ app.get("/api/countProducts", function(request, response){
 	products.countProducts((err, body) => {
 
 		if(err) {
-			console.log(err);
+			let erro = {"message": "Erro ao obter a quantidade de produtos"};
+			response.send(erro);
 		}
 
 		else {
@@ -165,6 +174,10 @@ app.get("/api/getProducts", function(request, response){
 				productsList.push(row.doc);
 			});
 		}
+		else {
+			let erro = {"message": "Erro ao recuperar produtos"};
+			response.send(erro);
+		}
 		response.send(productsList);
 	});
 });
@@ -179,7 +192,8 @@ app.get("/api/:id/getProductById", function(request, response){
 			response.send(body);
 		}
 		else{
-			console.log("Nao foi possivel retornar o produto.");
+			let erro = {"message": "Erro ao recuperar produto"};
+			response.send(erro);
 		}
 	});
 });
@@ -191,14 +205,18 @@ app.delete("/api/:id/removeProduct", function(request, response){
 	products.getProductById(req.id, (err, body) => {
 
 		if(err) {
-			console.log("produto nao existe");
-			response.send({"ok": false});
+			let erro = {"message": "Produto inexistente"};
+			response.send(erro);		
 		}
 		else {
 			let rev = body._rev;
 			products.removeProduct(req.id, rev, (err, body) => {
 				if(!err){
 					response.send(body);
+				}
+				else{
+					let erro = {"message": "Erro ao remover produto"};
+					response.send(erro);
 				}
 			});
 		}
@@ -213,8 +231,8 @@ app.put("/api/updateProduct", function(request, response){
 	products.getProductById(req._id, (err, body) => {
 
 		if(err) {
-			console.log("produto nao existe");
-			response.send({"ok": false});
+			let erro = {"message": "Produto inexistente"};
+			response.send(erro);
 		}
 		else {
 			let rev = body._rev;
@@ -222,6 +240,10 @@ app.put("/api/updateProduct", function(request, response){
 			products.updateProduct(req, (err, body) => {
 				if(!err){
 					response.send(body);
+				}
+				else{
+					let erro = {"message": "Erro ao atualizar produto"};
+					response.send(erro);
 				}
 			});
 		}
@@ -234,7 +256,8 @@ app.get("/api/countServices", function(request, response){
 	services.countServices((err, body) => {
 
 		if(err) {
-			console.log(err);
+			let erro = {"message": "Erro ao obter a quantidade de serviços"};
+			response.send(erro);
 		}
 
 		else {
@@ -252,8 +275,12 @@ app.get("/api/getServices", function(request, response){
 			body.rows.forEach(function(row){
 				servicesList.push(row.doc);
 			});
+			response.send(servicesList);
 		}
-		response.send(servicesList);
+		else {
+			let erro = {"message": "Erro ao obter serviços"};
+			response.send(erro);
+		}
 	});
 });
 
@@ -264,14 +291,18 @@ app.delete("/api/:id/removeService", function(request, response){
 	services.getServiceById(req.id, (err, body) => {
 
 		if(err) {
-			console.log("serviço nao existe");
-			response.send({"ok": false});
+			let erro = {"message": "Serviço inexistente"};
+			response.send(erro);
 		}
 		else {
 			let rev = body._rev;
 			services.removeService(req.id, rev, (err, body) => {
 				if(!err){
 					response.send(body);
+				}
+				else{
+					let erro = {"message": "Erro ao remover serviço"};
+					response.send(erro);
 				}
 			});
 		}
@@ -283,7 +314,7 @@ app.get("/api/:user_id/countCartProductsByUserId", function(request, response){
 
 	cart.countCartProductsByUserId(function(err, body){
 		let productsCount = 0;
-		if (!err) {
+		if (!err) {	
 			body.rows.forEach(function(row){
 				if(row.doc.user_id === req.user_id) {
 					productsCount++;
