@@ -1,14 +1,15 @@
 let express = require("express");
 let path = require("path");
 let app = express();
-let initCouch = require('./init_couch');
 let bodyparser = require('body-parser');
 //dbs
+let initCouch = require('./init_couch');
+
 let users = require('./db/users');
 let pets = require('./db/pets');
 let products = require('./db/products');
 let services = require('./db/services');
-let cart = require('./db/services');
+let cart = require('./db/cart');
 
 
 //initilializing the couch
@@ -23,7 +24,7 @@ initCouch(function(err) {
 
 app.use(bodyparser.json());
 
-//LOGIN: funcionando por ora
+//LOGIN: -x-
 app.post("/api/login", function(request, response){
 	let req = request.body;
 	
@@ -77,8 +78,8 @@ app.get("/api/getAllUsers", function(request, response){
 });
 
 // REMOVE USER: feito
-app.delete("/api/removeUser", function(request, response){
-	let req = request.body;
+app.delete("/api/removeUser/:id", function(request, response){
+	let req = request.params;
 
 	users.getUserById(req.id, (err, body) => {
 
@@ -113,8 +114,8 @@ app.delete("/api/removeUser", function(request, response){
 });
 
 //GET PETS BY USER: feito (TROCAR PARA GET)
-app.post("/api/getPetsByUser", function(request, response){
-	req = request.body
+app.get("/api/getPetsByUser/:owner_id", function(request, response){
+	let req = request.params
 
 	pets.getPetsByUser(function(err, body){
 		let petsList = []
@@ -160,8 +161,8 @@ app.get("/api/getProducts", function(request, response){
 });
 
 //GET PRODUCTS BY ID: feito mais ou menos (incluir caso de erro, TROCAR PARA GET)
-app.post("/api/getProductById", function(request, response){
-	let req = request.body;
+app.get("/api/getProductById/:id", function(request, response){
+	let req = request.params;
 
 	products.getProductById(req.id, (err, body) => {
 
@@ -175,8 +176,8 @@ app.post("/api/getProductById", function(request, response){
 });
 
 // REMOVE PRODUCT: feito
-app.delete("/api/removeProduct", function(request, response){
-	let req = request.body;
+app.delete("/api/removeProduct/:id", function(request, response){
+	let req = request.params;
 
 	products.getProductById(req.id, (err, body) => {
 
@@ -195,7 +196,7 @@ app.delete("/api/removeProduct", function(request, response){
 	});
 });
 
-// UPDATE PRODUCT: feito
+// UPDATE PRODUCT: -x-
 app.put("/api/updateProduct", function(request, response){
 	let req = request.body;
 
@@ -219,12 +220,9 @@ app.put("/api/updateProduct", function(request, response){
 	});
 });
 
-
-
 //COUNT SERVICES: feito
 app.get("/api/countServices", function(request, response){
-	req = request.body;
-	
+
 	services.countServices((err, body) => {
 
 		if(err) {
@@ -239,7 +237,6 @@ app.get("/api/countServices", function(request, response){
 
 //GET SERVICES: feito (dar uma olhada nos parâmetros retornados)
 app.get("/api/getServices", function(request, response){
-	req = request.body;
 	
 	services.getServices(function(err, body){
 		let servicesList = []
@@ -253,8 +250,8 @@ app.get("/api/getServices", function(request, response){
 });
 
 // REMOVE SERVICE: feito
-app.delete("/api/removeService", function(request, response){
-	let req = request.body;
+app.delete("/api/removeService/:id", function(request, response){
+	let req = request.params;
 
 	services.getServiceById(req.id, (err, body) => {
 

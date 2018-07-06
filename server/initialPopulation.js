@@ -2,7 +2,7 @@ let users = require('./db/users');
 let pets = require('./db/pets');
 let products = require('./db/products');
 let services = require('./db/services');
-//let cart = require('./db/cart');
+let cart = require('./db/cart');
 
 let initialPets= [
     {
@@ -181,13 +181,13 @@ initialServices.forEach((s) => {
     });
 });
 
-// initialCart.forEach((p) => {
-//     cart.create(c, (err) => {
-//         if (err) {
-//             throw err;
-//         }
-//         else {
-//             console.log('cart inserted');
-//         }   
-//     });
-// });
+initialCart.forEach((c) => {
+    cart.create(c, (err) => {
+        if (err) {
+            throw err;
+        }
+        else {
+            console.log('cart inserted');
+        }   
+    });
+});
