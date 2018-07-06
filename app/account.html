@@ -7,7 +7,7 @@
                 <div class="row">
                     <div class="personal-info clearfix valign-wrapper">
                         <div class="profile-img col s12 m3">
-                            <img class="circle responsive-img" src="images/profile/rafael.jpg" onerror="this.src='images/profile/default.jpg';">
+                            <img class="circle responsive-img" src="images/profile/default.jpg" onerror="this.src='images/profile/default.jpg';">
                         </div>
                         <div class="profile-info col s12 m9">
                             <div class="info-name col s12 m4 xl3">
@@ -73,30 +73,6 @@
             </div>
         </div>`
 
-
-    if (loggedUser) {
-        $('.profile-info .info-name .value').html(loggedUser.name);
-        $('.profile-info .info-lastname .value').html(loggedUser.lastname);
-        $('.profile-info .info-email .value').html(loggedUser.email);
-        $('.profile-info .info-phone .value').html(loggedUser.telephone);
-        $('.profile-info .info-address .value').html(loggedUser.address);
-        loggedUser.image_id = (loggedUser.image_id == undefined) ? 0 : loggedUser.image_id;
-        $('.profile-img img').attr('src', initialImageSrc[loggedUser.image_id]);
-        $('#sidenav-profile-img').attr('src', initialImageSrc[loggedUser.image_id]);
-
-        // get the image src from array buffer and set to the image src
-        /* Não consegui fazer funcionar
-        if (loggedUser.profile_image) {
-            arrayBufferToObjectUrl(loggedUser.profile_image, (objUrl) => {
-                console.log(objUrl);
-                $('.profile-img img').attr('src', objUrl, () => { window.URL.revokeObjectURL(objUrl) });
-            });
-        }
-        */
-
-        getPetsByUser(loggedUser.id);
-    }
-
     updatePets = (petsList) => {
         let petsHtml = '';
         $('.pets-list').empty();
@@ -116,4 +92,38 @@
         
         $('.pets-list').html(petsHtml);
     }
+
+
+    if (getLoggedUser()) {
+        $('.profile-info .info-name .value').html(getLoggedUser().name);
+        $('.profile-info .info-lastname .value').html(getLoggedUser().lastname);
+        $('.profile-info .info-email .value').html(getLoggedUser().email);
+        $('.profile-info .info-phone .value').html(getLoggedUser().telephone);
+        $('.profile-info .info-address .value').html(getLoggedUser().address);
+        getLoggedUser().image_id = (getLoggedUser().image_id == undefined) ? 0 : getLoggedUser().image_id;
+        //$('.profile-img img').attr('src', initialImageSrc[getLoggedUser().image_id]);
+        //$('#sidenav-profile-img').attr('src', initialImageSrc[getLoggedUser().image_id]);
+
+        // get the image src from array buffer and set to the image src
+        /* Não consegui fazer funcionar
+        if (getLoggedUser().profile_image) {
+            arrayBufferToObjectUrl(getLoggedUser().profile_image, (objUrl) => {
+                console.log(objUrl);
+                $('.profile-img img').attr('src', objUrl, () => { window.URL.revokeObjectURL(objUrl) });
+            });
+        }
+        */
+
+        getUserPets(getLoggedUser(), updatePets);
+    }
+
+    logOut = () => {
+        let conf = confirm("Tem certeza que deseja sair?")
+        if (conf) {
+            sessionStorage.clear();
+            updateNavbar();
+            location.reload();
+        }
+    }
+
 </script>

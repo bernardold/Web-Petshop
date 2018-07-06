@@ -34,17 +34,20 @@ updateNavbar = () => {
     $(".nav-home").show();
     $(".nav-management").hide();
 
-    if (getLoggedUser()) {
+    let loggedUser = getLoggedUser()
+    if (loggedUser) {
         $(".nav-account").show();
         $(".nav-store").show();
         $(".nav-services").show();
         $(".nav-cart").show();
         $(".nav-login").hide();
         
-        if (getLoggedUser().role == 'admin') {
+        $(".nav-account").html(loggedUser.name);
+
+        if (loggedUser.role == 'admin') {
             $(".nav-management").show();
         }
-
+        
         //countCartProductsByUserId(loggedUser.id);
     } else {
         $(".nav-store").hide();

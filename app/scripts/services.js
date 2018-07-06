@@ -8,12 +8,13 @@ var api = {
         getUsers: 'getAllUsers',
         removeUser: 'removeUser/:id',
         // pet service
-        getUserPets: 'getPetsByUser/:userId',
+        getUserPets: ':userId/getPetsByUser',
         // product services
         getStoreProducts: 'getProducts',
+        countStoreProducts: 'countProducts',
         // services services
         getServices: 'getServices',
-
+        countServices: 'countServices',
         // cart services
     }
 }
@@ -37,6 +38,7 @@ tryLogin = (username, password) => {
         processData: false,
         data: body,
         success: (data, status) => {
+            console.log(data);
             let loggedUser = data;
             persistLoggedUser(loggedUser);
             location.reload();
@@ -50,18 +52,16 @@ tryLogin = (username, password) => {
 
 }
 
-countUsers = () => {
+countUsers = (cb) => {
     $.ajax({
         type: "GET",
         url: getEndpoint('countUsers'),
         success: (data, status) => {
-            console.log('status', status, data);
-            let loggedUser = data
-            persistLoggedUser(loggedUser);
-            location.reload
+            cb(data)
         },
-        error: (data, status) => {
-            console.log(data, status);
+        error: (data) => {
+            let error = getError(data);
+            alert(error.message);
         },
         dataType: "json"
     })
@@ -90,13 +90,17 @@ removeUser = (user) => {
     })
 }
 
-getUserPets = (user) => {
-    let url = getEndpoint('getUserPets').split(':userId').join(user.id);
+getUserPets = (user, cb) => {
+    let url = getEndpoint('getUserPets').split(':userId').join(user._id);
     $.ajax({
         type: "GET",
         url: url,
-        success: (data, status) => {
-            console.log('status', status, data);
+        success: (data) => {
+            cb(data)
+        },
+        error: (data) => {
+            let error = getError(data);
+            alert(error.message);
         },
         dataType: "json"
     });
@@ -117,6 +121,21 @@ getStoreProducts = (cb) => {
     });
 }
 
+countStoreProducts = (cb) => {
+    $.ajax({
+        type: "GET",
+        url: getEndpoint('countStoreProducts'),
+        success: (data, status) => {
+            cb(data)
+        },
+        error: (data) => {
+            let error = getError(data);
+            alert(error.message);
+        },
+        dataType: "json"
+    })
+}
+
 getServices = (cb) => {
     $.ajax({
         type: "GET",
@@ -132,11 +151,25 @@ getServices = (cb) => {
     });
 }
 
+countServices = (cb) => {
+    $.ajax({
+        type: "GET",
+        url: getEndpoint('countServices'),
+        success: (data) => {
+            cb(data)
+        },
+        error: (data) => {
+            let error = getError(data);
+            alert(error.message);
+        },
+        dataType: "json"
+    })
+}
+
 persistLoggedUser = (user) => {
     sessionStorage.setItem('loggedUser', JSON.stringify(user));
 }
 getLoggedUser = () => {
-    console.log(JSON.parse(sessionStorage.getItem('loggedUser')));
     return JSON.parse(sessionStorage.getItem('loggedUser'));
 }
 getError = (data) => {

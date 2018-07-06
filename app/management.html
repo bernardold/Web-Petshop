@@ -54,12 +54,12 @@
     });
 
     countUsers((count) => {
-        $('#user-count').html(count)
+        $('#user-count').html(count.userCount)
     });
-    countProducts((count) => {
-        $('#product-count').html(count)
+    countStoreProducts((count) => {
+        $('#product-count').html(count.productsCount)
     });
     countServices((count) => {
-        $('#service-count').html(count)
+        $('#service-count').html(count.servicesCount)
     });
 </script>
