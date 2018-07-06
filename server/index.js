@@ -67,7 +67,7 @@ app.get("/api/countUsers", function(request, response){
 app.get("/api/getAllUsers", function(request, response){
 	
 	users.getAllUsers(function(err, body){
-		let usersList = []
+		let usersList = [];
 		if (!err) {
 			body.rows.forEach(function(row){
 				usersList.push(row.doc);
@@ -115,13 +115,12 @@ app.delete("/api/:id/removeUser", function(request, response){
 
 //GET PETS BY USER: feito (TROCAR PARA GET)
 app.get("/api/:owner_id/getPetsByUser", function(request, response){
-	let req = request.params
+	let req = request.params;
 
 	pets.getPetsByUser(function(err, body){
-		let petsList = []
+		let petsList = [];
 		if (!err) {
 			body.rows.forEach(function(row){
-				console.log(row.doc.owner_id,  req.owner_id);
 				if(row.doc.owner_id === req.owner_id) {
 					petsList.push(row.doc);
 				}
@@ -150,7 +149,7 @@ app.get("/api/countProducts", function(request, response){
 app.get("/api/getProducts", function(request, response){
 	
 	products.getProducts(function(err, body){
-		let productsList = []
+		let productsList = [];
 		if (!err) {
 			body.rows.forEach(function(row){
 				productsList.push(row.doc);
@@ -160,7 +159,7 @@ app.get("/api/getProducts", function(request, response){
 	});
 });
 
-//GET PRODUCTS BY ID: feito mais ou menos (incluir caso de erro, TROCAR PARA GET)
+//GET PRODUCTS BY ID: feito mais ou menos 
 app.get("/api/:id/getProductById", function(request, response){
 	let req = request.params;
 
@@ -170,7 +169,7 @@ app.get("/api/:id/getProductById", function(request, response){
 			response.send(body);
 		}
 		else{
-			// erro
+			console.log("Nao foi possivel retornar o produto.");
 		}
 	});
 });
@@ -209,7 +208,6 @@ app.put("/api/updateProduct", function(request, response){
 		}
 		else {
 			let rev = body._rev;
-			console.log(rev);
 			req._rev = rev;
 			products.updateProduct(req, (err, body) => {
 				if(!err){
@@ -239,7 +237,7 @@ app.get("/api/countServices", function(request, response){
 app.get("/api/getServices", function(request, response){
 	
 	services.getServices(function(err, body){
-		let servicesList = []
+		let servicesList = [];
 		if (!err) {
 			body.rows.forEach(function(row){
 				servicesList.push(row.doc);
@@ -270,9 +268,25 @@ app.delete("/api/:id/removeService", function(request, response){
 	});
 });
 
+app.get("/api/:user_id/countCartProductsByUserId", function(request, response){
+	let req = request.params;
+
+	cart.countCartProductsByUserId(function(err, body){
+		let productsCount = 0;
+		if (!err) {
+			body.rows.forEach(function(row){
+				if(row.doc.user_id === req.user_id) {
+					productsCount++;
+				}
+			});
+		}
+		response.send(productsList);
+	});
+});
+
 /* serves main page */
 app.get("/", function(req, res) {
-    res.sendFile(path.resolve(__dirname + '/../app/index.html'))
+    res.sendFile(path.resolve(__dirname + '/../app/index.html'));
 });
 
  /* serves all the static files */
