@@ -1,6 +1,6 @@
-let api = {
-    baseUrl: 'http://192.168.0.114:5000/api/',
-    //baseUrl: 'http://localhost:5000',
+var api = {
+    //baseUrl: 'http://192.168.0.114:5000/api/',
+    baseUrl: 'http://localhost:5000/api/',
     endpoints: {
         login: 'login'
     }
@@ -20,10 +20,23 @@ tryLogin = (username, password) => {
     }
 
     $.post(getEndpoint('login'), body, function(data, status) { console.log('status', status, data); })
-    .done(() => {
-
+    .done((data, status) => {
+        console.log(data);
+        console.log(status);
+        let loggedUser = data;
+        persistLoggedUser(loggedUser);
+        //updateNavbar();
+        //location.reload();
     })
-    .fail(() => {
-
+    .fail((data, status) => {
+        console.log(data);
+        console.log(status);
     });
+}
+
+persistLoggedUser = (user) => {
+    sessionStorage.setItem('loggedUser', JSON.stringify(user));
+}
+getLoggedUser = () => {
+    sessionStorage.getItem('loggedUser')
 }
