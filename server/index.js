@@ -54,7 +54,8 @@ app.get("/api/countUsers", function(request, response){
 	users.countUsers((err, body) => {
 
 		if(err){
-			console.log(err);
+			let erro = {"message": "Erro ao obter a quantidade de usuarios."};
+			response.send(erro);
 		}
 
 		else{
@@ -72,8 +73,12 @@ app.get("/api/getAllUsers", function(request, response){
 			body.rows.forEach(function(row){
 				usersList.push(row.doc);
 			});
+			response.send(usersList);
 		}
-		response.send(usersList);
+		else{
+			let erro = {"message": "Erro ao obter todos os usuários"};
+			response.send(erro);
+		}
 	});
 });
 
@@ -84,8 +89,8 @@ app.delete("/api/:id/removeUser", function(request, response){
 	users.getUserById(req.id, (err, body) => {
 
 		if(err) {
-			console.log("user nao existe");
-			response.send({"ok": false});
+			let erro = {"message": "Usuario inexistente"};
+			response.send(erro);
 		}
 		else {
 			let rev = body._rev;
@@ -96,11 +101,16 @@ app.delete("/api/:id/removeUser", function(request, response){
 						if(row.doc.owner_id === req.id) {
 							pets.removePet(row.doc._id, row.doc._rev, (err, body) => {
 								if(err) {
-									console.log("erro na remocao dos pets de um user");
+									let erro = {"message": "Erro na remocao dos pets de um user"};
+									response.send(erro);
 								}
 							});
 						}
 					});
+				}
+				else{
+					let erro = {"message": "Erro ao recuperar pets do usuario"};
+					response.send(erro);
 				}
 			});
 

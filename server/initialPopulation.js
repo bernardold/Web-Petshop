@@ -79,13 +79,13 @@ let initialPets= [
 ];
 
 let initialUsers = [
-    { _id: "0", role: 'admin', name: "Adminstrador", lastname: "do Sistema", email: "admin@t.co", password: 'admin', telephone: "(16)98888-8888", address: "Av. Brasil, 1111 - Centro, São Carlos - SP" },
-    { _id: "1", role: 'user', name: "Rafael", lastname: "Bastos", email: "rb@t.co", password: 'qwe123', telephone: "(16)3553-5521", address: "Av. São Carlos, 2911 - Centro, São Carlos - SP" },
-    { _id: "2", role: 'user', name: "Dummy", lastname: "User", email: "dummy@t.co", password: 'qwe123', telephone: "(16)3553-5521", address: "Av. São Carlos, 2911 - Centro, São Carlos - SP" },
-    { _id: "3", role: 'user', name: "Bernardo", lastname: "Duarte", email: "berna@t.co", password: 'qwe123', telephone: "(16)3553-5521", address: "Av. São Carlos, 2911 - Centro, São Carlos - SP" },
-    { _id: "4", role: 'user', name: "Giovani", lastname: "Ortolani", email: "gepeto@t.co", password: 'qwe123', telephone: "(16)3553-5521", address: "Av. São Carlos, 2911 - Centro, São Carlos - SP" },
-    { _id: "5", role: 'user', name: "Jorge", lastname: "Vilaça", email: "jorge@t.co", password: 'qwe123', telephone: "(16)3553-5521", address: "Av. São Carlos, 2911 - Centro, São Carlos - SP" },
-    { _id: "6", role: 'user', name: "Nicolas", lastname: "Leite", email: "gg@t.co", password: 'qwe123', telephone: "(16)3553-5521", address: "Av. São Carlos, 2911 - Centro, São Carlos - SP" },
+    { _id: "admin@t.co", role: 'admin', name: "Adminstrador", lastname: "do Sistema", email: "admin@t.co", password: 'admin', telephone: "(16)98888-8888", address: "Av. Brasil, 1111 - Centro, São Carlos - SP" },
+    { _id: "rb@t.co", role: 'user', name: "Rafael", lastname: "Bastos", email: "rb@t.co", password: 'qwe123', telephone: "(16)3553-5521", address: "Av. São Carlos, 2911 - Centro, São Carlos - SP" },
+    { _id: "dummy@t.co", role: 'user', name: "Dummy", lastname: "User", email: "dummy@t.co", password: 'qwe123', telephone: "(16)3553-5521", address: "Av. São Carlos, 2911 - Centro, São Carlos - SP" },
+    { _id: "berna@t.co", role: 'user', name: "Bernardo", lastname: "Duarte", email: "berna@t.co", password: 'qwe123', telephone: "(16)3553-5521", address: "Av. São Carlos, 2911 - Centro, São Carlos - SP" },
+    { _id: "gepeto@t.co", role: 'user', name: "Giovani", lastname: "Ortolani", email: "gepeto@t.co", password: 'qwe123', telephone: "(16)3553-5521", address: "Av. São Carlos, 2911 - Centro, São Carlos - SP" },
+    { _id: "jorge@t.co", role: 'user', name: "Jorge", lastname: "Vilaça", email: "jorge@t.co", password: 'qwe123', telephone: "(16)3553-5521", address: "Av. São Carlos, 2911 - Centro, São Carlos - SP" },
+    { _id: "gg@t.co", role: 'user', name: "Nicolas", lastname: "Leite", email: "gg@t.co", password: 'qwe123', telephone: "(16)3553-5521", address: "Av. São Carlos, 2911 - Centro, São Carlos - SP" },
 ];
 
 let initialProducts = [
