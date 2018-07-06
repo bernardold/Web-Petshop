@@ -1,4 +1,4 @@
-var api = {
+let api = {
     baseUrl: 'http://192.168.0.114:5000/api/',
     //baseUrl: 'http://localhost:5000',
     endpoints: {

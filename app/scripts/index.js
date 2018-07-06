@@ -1,10 +1,10 @@
-var express = require("express");
-var path = require("path");
-var app = express();
-var initCouch = require('./init_couch');
-var bodyparser = require('body-parser');
-var users = require('./db/users');
-var pets = require('./db/pets');
+let express = require("express");
+let path = require("path");
+let app = express();
+let initCouch = require('./init_couch');
+let bodyparser = require('body-parser');
+let users = require('./db/users');
+let pets = require('./db/pets');
 
 
 //initilializing the couch
@@ -64,7 +64,7 @@ app.get(/^(.+)$/, function(req, res){
      res.sendFile(path.resolve(__dirname + '/../app' + req.params[0])); 
 });
 
-var port = process.env.PORT || 5000;
+let port = process.env.PORT || 5000;
 app.listen(port, function() {
    	console.log("Listening on " + port);
 });	
