@@ -55,13 +55,13 @@ app.get("/api/getAllUsers", function(request, response){
 
  /* serves main page */
 app.get("/", function(req, res) {
-    res.sendFile(path.resolve(__dirname + '/../index.html'))
+    res.sendFile(path.resolve(__dirname + '/../app/index.html'))
 });
 
  /* serves all the static files */
 app.get(/^(.+)$/, function(req, res){ 
      console.log('static file request : ' + req.params);
-     res.sendFile(path.resolve(__dirname + '/..' + req.params[0])); 
+     res.sendFile(path.resolve(__dirname + '/../app' + req.params[0])); 
 });
 
 var port = process.env.PORT || 5000;
