@@ -8,10 +8,11 @@ var api = {
         getUsers: 'getAllUsers',
         removeUser: 'removeUser/:id',
         // pet service
-        getUserPets: 'getPetsByUser/:userId'
+        getUserPets: 'getPetsByUser/:userId',
         // product services
-
+        getStoreProducts: 'getProducts',
         // services services
+        getServices: 'getServices',
 
         // cart services
     }
@@ -96,6 +97,36 @@ getUserPets = (user) => {
         url: url,
         success: (data, status) => {
             console.log('status', status, data);
+        },
+        dataType: "json"
+    });
+}
+
+getStoreProducts = (cb) => {
+    $.ajax({
+        type: "GET",
+        url: getEndpoint('getStoreProducts'),
+        success: (data, status) => {
+            cb(data);
+        },
+        error: (data) => {
+            let error = getError(data);
+            alert(error.message);
+        },
+        dataType: "json"
+    });
+}
+
+getServices = (cb) => {
+    $.ajax({
+        type: "GET",
+        url: getEndpoint('getServices'),
+        success: (data) => {
+            cb(data);
+        },
+        error: (data) => {
+            let error = getError(data);
+            alert(error.message);
         },
         dataType: "json"
     });
