@@ -22,11 +22,13 @@ initCouch(function(err) {
 	}
 });
 
-app.use(bodyparser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 
 //LOGIN: -x-
-app.post("/api/:username/:password/login", function(request, response){
-	let req = request.params;
+app.post("/api/login", function(request, response){
+	
+	let req = request.body;
 	
 	users.login(req.username, (err, body) => {
 
