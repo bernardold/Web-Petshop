@@ -22,13 +22,11 @@ initCouch(function(err) {
 	}
 });
 
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(bodyParser.json());
+app.use(bodyparser.json());
 
 //LOGIN: -x-
-app.post("/api/login", function(request, response){
-	
-	let req = request.body;
+app.post("/api/:username/:password/login", function(request, response){
+	let req = request.params;
 	
 	users.login(req.username, (err, body) => {
 
@@ -80,7 +78,7 @@ app.get("/api/getAllUsers", function(request, response){
 });
 
 // REMOVE USER: feito
-app.delete("/api/removeUser/:id", function(request, response){
+app.delete("/api/:id/removeUser", function(request, response){
 	let req = request.params;
 
 	users.getUserById(req.id, (err, body) => {
@@ -116,7 +114,7 @@ app.delete("/api/removeUser/:id", function(request, response){
 });
 
 //GET PETS BY USER: feito (TROCAR PARA GET)
-app.get("/api/getPetsByUser/:owner_id", function(request, response){
+app.get("/api/:owner_id/getPetsByUser", function(request, response){
 	let req = request.params
 
 	pets.getPetsByUser(function(err, body){
@@ -163,7 +161,7 @@ app.get("/api/getProducts", function(request, response){
 });
 
 //GET PRODUCTS BY ID: feito mais ou menos (incluir caso de erro, TROCAR PARA GET)
-app.get("/api/getProductById/:id", function(request, response){
+app.get("/api/:id/getProductById", function(request, response){
 	let req = request.params;
 
 	products.getProductById(req.id, (err, body) => {
@@ -178,7 +176,7 @@ app.get("/api/getProductById/:id", function(request, response){
 });
 
 // REMOVE PRODUCT: feito
-app.delete("/api/removeProduct/:id", function(request, response){
+app.delete("/api/:id/removeProduct", function(request, response){
 	let req = request.params;
 
 	products.getProductById(req.id, (err, body) => {
@@ -252,7 +250,7 @@ app.get("/api/getServices", function(request, response){
 });
 
 // REMOVE SERVICE: feito
-app.delete("/api/removeService/:id", function(request, response){
+app.delete("/api/:id/removeService", function(request, response){
 	let req = request.params;
 
 	services.getServiceById(req.id, (err, body) => {
@@ -272,7 +270,7 @@ app.delete("/api/removeService/:id", function(request, response){
 	});
 });
 
- /* serves main page */
+/* serves main page */
 app.get("/", function(req, res) {
     res.sendFile(path.resolve(__dirname + '/../app/index.html'))
 });
