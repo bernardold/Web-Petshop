@@ -4,6 +4,18 @@ let products = require('./db/products');
 let services = require('./db/services');
 let cart = require('./db/cart');
 
+let initCouch = require('./init_couch');
+
+//initilializing the couch
+initCouch(function(err) {  
+    if (err) {
+        throw err;
+    }
+    else {
+        console.log('CouchDB initialized!');
+    }
+});
+
 let initialPets= [
     {
     	_id: "0", 
@@ -104,8 +116,8 @@ let initialServices = [
 ];
 
 let initialCart = [
-    { _id: "0", user_id: "1", product_id: "2", product_name: 'Ração para cães - Adulto - Pedigree', product_price: 100.0, amount: 1 },
-    { _id: "1", user_id: "1", product_id: "1", product_name: 'Brinquedo para cães - Osso', product_price: 25.0, amount: 2 },
+    { _id: "0", user_id: "rb@t.co", product_id: "2", product_name: 'Ração para cães - Adulto - Pedigree', product_price: 100.0, amount: 1 },
+    { _id: "1", user_id: "rb@t.co", product_id: "1", product_name: 'Brinquedo para cães - Osso', product_price: 25.0, amount: 2 },
 ];
 
 initialUsers.forEach((u) => {
