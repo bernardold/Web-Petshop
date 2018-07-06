@@ -23,3 +23,7 @@ exports.getProductById = function getProductById(id, cb){
 exports.removeProduct = function removeProduct(id, rev, cb){
     products.destroy(id, rev, cb);
 }
+
+exports.updateProduct = function updateProduct(product, cb) {  
+    products.insert(product, product.id, cb);
+};

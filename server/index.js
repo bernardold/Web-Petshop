@@ -8,6 +8,7 @@ let users = require('./db/users');
 let pets = require('./db/pets');
 let products = require('./db/products');
 let services = require('./db/services');
+let cart = require('./db/services');
 
 
 //initilializing the couch
@@ -193,6 +194,32 @@ app.delete("/api/removeProduct", function(request, response){
 		}
 	});
 });
+
+// UPDATE PRODUCT: feito
+app.put("/api/updateProduct", function(request, response){
+	let req = request.body;
+
+
+	products.getProductById(req._id, (err, body) => {
+
+		if(err) {
+			console.log("produto nao existe");
+			response.send({"ok": false});
+		}
+		else {
+			let rev = body._rev;
+			console.log(rev);
+			req._rev = rev;
+			products.updateProduct(req, (err, body) => {
+				if(!err){
+					response.send(body);
+				}
+			});
+		}
+	});
+});
+
+
 
 //COUNT SERVICES: feito
 app.get("/api/countServices", function(request, response){
