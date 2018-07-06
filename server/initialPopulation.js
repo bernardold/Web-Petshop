@@ -7,14 +7,14 @@ let cart = require('./db/cart');
 let initialPets= [
     {
     	_id: "0", 
-    	owner_id: "1", 
+    	owner_id: "rb@t.co", 
     	name: "Bilu", 
     	species: "Cão - Poodle", 
     	age: 4, unit: 'anos' 
     },
     { 
     	_id: "1", 
-    	owner_id: "1", 
+    	owner_id: "rb@t.co", 
     	name: "Orley", 
     	species: "Pássaro - Calopsita", 
     	age: 7, 
@@ -22,7 +22,7 @@ let initialPets= [
     },
     { 
     	_id: "2", 
-    	owner_id: "1", 
+    	owner_id: "rb@t.co", 
     	name: "Nemo", 
     	species: "Peixe - Beta", 
     	age: 6, 
@@ -30,7 +30,7 @@ let initialPets= [
     },
     { 
     	_id: "3", 
-    	owner_id: "1", 
+    	owner_id: "rb@t.co", 
     	name: "Hantaro", 
     	species: "Hamster", 
     	age: 1, 
@@ -38,7 +38,7 @@ let initialPets= [
     },
     { 
     	_id: "4", 
-    	owner_id: "1", 
+    	owner_id: "rb@t.co", 
     	name: "Carlos", 
     	species: "Cobra", 
     	age: 5, 
@@ -46,7 +46,7 @@ let initialPets= [
     },
     { 
     	_id: "5", 
-    	owner_id: "2", 
+    	owner_id: "dummy@t.co", 
     	name: "Nina", 
     	species: "Cão - Poodle", 
     	age: 2, 
@@ -54,7 +54,7 @@ let initialPets= [
     },
     { 
     	_id: "6", 
-    	owner_id: "3", 
+    	owner_id: "berna@t.co", 
     	name: "Bastião", 
     	species: "Cão - Bulldog", 
     	age: 10, 
@@ -62,7 +62,7 @@ let initialPets= [
     },
     { 
     	_id: "7", 
-    	owner_id: "3", 
+    	owner_id: "berna@t.co", 
     	name: "Zé", 
     	species: "Cão - Cocker", 
     	age: 17, 
@@ -70,7 +70,7 @@ let initialPets= [
     },
     { 
     	_id: "8", 
-    	owner_id: "3", 
+    	owner_id: "berna@t.co", 
     	name: "Bráulio", 
     	species: "Cão - Pincher", 
     	age: 2, 
