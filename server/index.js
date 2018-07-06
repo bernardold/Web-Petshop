@@ -25,8 +25,8 @@ initCouch(function(err) {
 app.use(bodyparser.json());
 
 //LOGIN: -x-
-app.post("/api/login", function(request, response){
-	let req = request.body;
+app.post("/api/login/:username/:password", function(request, response){
+	let req = request.params;
 	
 	users.login(req.username, (err, body) => {
 
