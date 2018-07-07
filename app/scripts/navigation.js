@@ -48,7 +48,9 @@ updateNavbar = () => {
             $(".nav-management").show();
         }
         
-        //countCartProductsByUserId(loggedUser.id);
+        countCartProductsByUserId(loggedUser._id, (count) => {
+            $('span.badge.cart-count').html(count.productsCountByUser)
+        });
     } else {
         $(".nav-store").hide();
         $(".nav-services").hide();

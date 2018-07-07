@@ -18,6 +18,8 @@ var api = {
         countServices: 'countServices',
         removeService: ':id/removeService',
         // cart services
+        addToCart: ':userId/:productId/:productName/:productPrice/addToCart',
+        countProductsInCart: ':userId/countCartProductsByUserId',
     }
 }
 
@@ -212,6 +214,40 @@ removeService = (serviceId, cb) => {
         dataType: "json"
     })
 }
+
+// cart
+addToCart = (userId, product, cb) => {
+    let url = getEndpoint('addToCart').split(':userId').join(userId).split(':productId').join(product._id).split(':productName').join(product.name).split(':productPrice').join(product.price);
+    $.ajax({
+        type: "PUT",
+        url: url,
+        success: (data) => {
+            cb(data);
+        },
+        error: (data) => {
+            let error = getError(data);
+            alert(error.message);
+        },
+        dataType: "json"
+    })
+}
+
+countCartProductsByUserId = (userId, cb) => {
+    let url = getEndpoint('countProductsInCart').split(':userId').join(userId)
+    $.ajax({
+        type: "GET",
+        url: url,
+        success: (data) => {
+            cb(data);
+        },
+        error: (data) => {
+            let error = getError(data);
+            alert(error.message);
+        },
+        dataType: "json"
+    })
+}
+
 
 persistLoggedUser = (user) => {
     sessionStorage.setItem('loggedUser', JSON.stringify(user));

@@ -22,7 +22,7 @@
                         </span>
                     </div>
                     <div class="v-space"></div>
-                    <button onclick="addProductToCart({{id}})" class="waves-effect waves-light btn right"><i class="large material-icons">add_shopping_cart</i></button>
+                    <button onclick="addProductToCart({{_id}})" class="waves-effect waves-light btn right"><i class="large material-icons">add_shopping_cart</i></button>
                 </div>
             </div>
         </div>`
@@ -54,18 +54,13 @@
     getStoreProducts(updateProducts);
 
     addProductToCart = (id) => {
-        const cartProduct = { user_id: loggedUser.id, product_id: id, amount: 1 };
         getStoreProducts((productsList) => {
-            product = productsList.find(p => (p.id == id));
-            cartProduct['product_image_id'] = product.image_id;
-            cartProduct['product_name'] = product.name;
-            cartProduct['product_price'] = product.price;
-
-            addToCart(cartProduct);
-
-            updateNavbar();
+            product = productsList.find(p => (p._id == id));
+            addToCart(getLoggedUser()._id, product, () => {
+                updateNavbar()
+                alert('Produto adicionado ao carrinho');
+            });
         });
-        
     }
 
 </script>
