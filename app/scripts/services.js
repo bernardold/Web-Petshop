@@ -11,6 +11,7 @@ var api = {
         getUserPets: ':userId/getPetsByUser',
         // product services
         getStoreProducts: 'getProducts',
+        getStoreProduct: ':id/getProductById',
         countStoreProducts: 'countProducts',
         removeStoreProduct: ':id/removeProduct',
         // services services
@@ -19,7 +20,8 @@ var api = {
         removeService: ':id/removeService',
         // cart services
         addToCart: ':userId/:productId/:productName/:productPrice/addToCart',
-        countProductsInCart: ':userId/countCartProductsByUserId',
+        countCartProducts: ':userId/countCartProductsByUserId',
+        getCartProducts: ':userId/getCartProductsByUserId',
     }
 }
 
@@ -136,11 +138,27 @@ getStoreProducts = (cb) => {
     });
 }
 
+getStoreProduct = (productId, cb) => {
+    let url = getEndpoint('getStoreProduct').split(':id').join(productId);
+    $.ajax({
+        type: "GET",
+        url: url,
+        success: (data) => {
+            cb(data);
+        },
+        error: (data) => {
+            let error = getError(data);
+            alert(error.message);
+        },
+        dataType: "json"
+    });
+}
+
 countStoreProducts = (cb) => {
     $.ajax({
         type: "GET",
         url: getEndpoint('countStoreProducts'),
-        success: (data, status) => {
+        success: (data) => {
             cb(data)
         },
         error: (data) => {
@@ -152,7 +170,6 @@ countStoreProducts = (cb) => {
 }
 
 removeStoreProduct = (productId, cb) => {
-    console.log(productId)
     let url = getEndpoint('removeStoreProduct').split(':id').join(productId);
     $.ajax({
         type: "DELETE",
@@ -233,7 +250,7 @@ addToCart = (userId, product, cb) => {
 }
 
 countCartProductsByUserId = (userId, cb) => {
-    let url = getEndpoint('countProductsInCart').split(':userId').join(userId)
+    let url = getEndpoint('countCartProducts').split(':userId').join(userId)
     $.ajax({
         type: "GET",
         url: url,
@@ -248,6 +265,21 @@ countCartProductsByUserId = (userId, cb) => {
     })
 }
 
+getCartProductsByUserId = (userId, cb) => {
+    let url = getEndpoint('getCartProducts').split(':userId').join(userId)
+    $.ajax({
+        type: "GET",
+        url: url,
+        success: (data) => {
+            cb(data);
+        },
+        error: (data) => {
+            let error = getError(data);
+            alert(error.message);
+        },
+        dataType: "json"
+    })
+}
 
 persistLoggedUser = (user) => {
     sessionStorage.setItem('loggedUser', JSON.stringify(user));

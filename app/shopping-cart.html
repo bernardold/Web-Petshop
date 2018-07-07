@@ -40,7 +40,7 @@
             <div class="col s12">
                 <div class="item-card clearfix">
                     <div class="item-img col s3">
-                        <img src="{{image}}">
+                        <img src="{{image}}" onerror="this.src='images/default.jpg';">
                     </div>
                     <div class="item-description col s6">
                         <h5 class="item-title">{{product_name}}</h5>
@@ -48,11 +48,11 @@
                     </div>
                     <div class="col s3 right-align">
                         <div class="input-field product-amount col s12">
-                            <input oninput="updateCart({{id}}, this.value)" id="qtd-input-{{id}}" name="qtd-input-0" type="number" value="{{amount}}" min="1" max="999"/>
-                            <label for="qtd-input-{{id}}" class="active">Quantidade</label>
+                            <input oninput="updateCart({{_id}}, this.value)" id="qtd-input-{{_id}}" name="qtd-input-0" type="number" value="{{amount}}" min="1" max="999"/>
+                            <label for="qtd-input-{{_id}}" class="active">Quantidade</label>
                         </div>
                         <div class="v-space"></div>
-                        <button onclick="confirmRemoveFromCart({{id}})" class="waves-effect waves-light btn red remove-cart-button">Remover</button>
+                        <button onclick="confirmRemoveFromCart({{_id}})" class="waves-effect waves-light btn red remove-cart-button">Remover</button>
                     </div>
                 </div>        
             </div>
@@ -72,8 +72,10 @@
                     obj[key] = (obj[key] == undefined) ? 21 : obj[key];
                     cartCardHtml = cartCardHtml.split('{{image}}').join(initialImageSrc[obj[key]])
                 } else if (obj.hasOwnProperty(key)) {
+                    console.log(key)
                     if (key == 'product_price') {
-                        cartCardHtml = cartCardHtml.split(`{{${key}}}`).join(obj[key].toFixed(2));
+                        console.log(obj[key]);
+                        cartCardHtml = cartCardHtml.split(`{{${key}}}`).join( Number(obj[key]).toFixed(2) );
                     } else {
                         cartCardHtml = cartCardHtml.split(`{{${key}}}`).join(obj[key]);
                     }
@@ -90,7 +92,7 @@
 
         updateNavbar();
     }
-    //getCartProductsByUserId(loggedUser.id, updateCartProducts);
+    getCartProductsByUserId(getLoggedUser()._id, updateCartProducts);
 
     updateCart = (id, value) => {
         if (value <= 0) {
@@ -106,22 +108,22 @@
         }
     }
 
-    confirmRemoveFromCart = (id) => {
-        let conf = confirm("Tem certeza que deseja remover do carrinho?")
-        if (conf) {
-            removeFromCart(id, loggedUser.id, updateCartProducts);
-        }
-    }
+    // confirmRemoveFromCart = (id) => {
+    //     let conf = confirm("Tem certeza que deseja remover do carrinho?")
+    //     if (conf) {
+    //         removeFromCart(id, loggedUser.id, updateCartProducts);
+    //     }
+    // }
 
     checkout = () => {
         for (const p of listOfProductsInCart) {
             // update amount
-            getProductById(p.product_id, (productToUpdate) => {
-                productToUpdate.amount -= p.amount;
-                updateProduct(productToUpdate, () => {
-                    removeFromCart(p.id, loggedUser.id, updateCartProducts);
-                });
-            });
+            // getStoreProduct(p.product_id, (productToUpdate) => {
+            //     productToUpdate.amount -= p.amount;
+            //     updateProduct(productToUpdate, () => {
+            //         removeFromCart(p.id, loggedUser.id, updateCartProducts);
+            //     });
+            // });
         }
     }
 </script>
