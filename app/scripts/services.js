@@ -6,15 +6,17 @@ var api = {
         login: ':username/:password/login',
         countUsers: 'countUsers',
         getUsers: 'getAllUsers',
-        removeUser: 'removeUser/:id',
+        removeUser: ':id/removeUser',
         // pet service
         getUserPets: ':userId/getPetsByUser',
         // product services
         getStoreProducts: 'getProducts',
         countStoreProducts: 'countProducts',
+        removeStoreProduct: ':id/removeProduct',
         // services services
         getServices: 'getServices',
         countServices: 'countServices',
+        removeService: ':id/removeService',
         // cart services
     }
 }
@@ -37,7 +39,7 @@ tryLogin = (username, password) => {
         url: url,    
         processData: false,
         data: body,
-        success: (data, status) => {
+        success: (data) => {
             console.log(data);
             let loggedUser = data;
             persistLoggedUser(loggedUser);
@@ -52,11 +54,12 @@ tryLogin = (username, password) => {
 
 }
 
+// User
 countUsers = (cb) => {
     $.ajax({
         type: "GET",
         url: getEndpoint('countUsers'),
-        success: (data, status) => {
+        success: (data) => {
             cb(data)
         },
         error: (data) => {
@@ -67,29 +70,38 @@ countUsers = (cb) => {
     })
 }
 
-getUsers = () => {
+getAllUsers = (cb) => {
     $.ajax({
         type: "GET",
         url: getEndpoint('getUsers'),
-        success: (data, status) => {
-            console.log('status', status, data);
+        success: (data) => {
+            cb(data);
+        },
+        error: (data) => {
+            let error = getError(data);
+            alert(error.message);
         },
         dataType: "json"
     })
 }
 
-removeUser = (user) => {
-    let url = getEndpoint('removeUser').split(':id').join(user.id);
+removeUser = (userId, cb) => {
+    let url = getEndpoint('removeUser').split(':id').join(userId);
     $.ajax({
         type: "DELETE",
         url: url,
-        success: (data, status) => {
-            console.log('status', status, data);
+        success: (data) => {
+            cb(data);
+        },
+        error: (data) => {
+            let error = getError(data);
+            alert(error.message);
         },
         dataType: "json"
     })
 }
 
+// Pets
 getUserPets = (user, cb) => {
     let url = getEndpoint('getUserPets').split(':userId').join(user._id);
     $.ajax({
@@ -106,6 +118,7 @@ getUserPets = (user, cb) => {
     });
 }
 
+// Products
 getStoreProducts = (cb) => {
     $.ajax({
         type: "GET",
@@ -136,6 +149,24 @@ countStoreProducts = (cb) => {
     })
 }
 
+removeStoreProduct = (productId, cb) => {
+    console.log(productId)
+    let url = getEndpoint('removeStoreProduct').split(':id').join(productId);
+    $.ajax({
+        type: "DELETE",
+        url: url,
+        success: (data) => {
+            cb(data);
+        },
+        error: (data) => {
+            let error = getError(data);
+            alert(error.message);
+        },
+        dataType: "json"
+    })
+}
+
+// Services
 getServices = (cb) => {
     $.ajax({
         type: "GET",
@@ -157,6 +188,22 @@ countServices = (cb) => {
         url: getEndpoint('countServices'),
         success: (data) => {
             cb(data)
+        },
+        error: (data) => {
+            let error = getError(data);
+            alert(error.message);
+        },
+        dataType: "json"
+    })
+}
+
+removeService = (serviceId, cb) => {
+    let url = getEndpoint('removeService').split(':id').join(serviceId);
+    $.ajax({
+        type: "DELETE",
+        url: url,
+        success: (data) => {
+            cb(data);
         },
         error: (data) => {
             let error = getError(data);

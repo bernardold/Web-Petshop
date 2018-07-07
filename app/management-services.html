@@ -16,8 +16,8 @@
                     <h4>{{name}}</h4>
                     <div class="service-duration">Duração: {{duration}} {{unit}}</div>
                     <div class="actions right">
-                        <button onclick="editService({{id}})" class="waves-effect waves-light btn">Editar</button>
-                        <button onclick="confirmRemoveService({{id}})" class="waves-effect waves-light btn red"><i class="material-icons">delete_forever</i></button>     
+                        <button onclick="editService({{_id}})" class="waves-effect waves-light btn">Editar</button>
+                        <button onclick="confirmRemoveService({{_id}})" class="waves-effect waves-light btn red"><i class="material-icons">delete_forever</i></button>     
                     </div>
                 </div>
             </div>
@@ -30,6 +30,7 @@
 
         $.each(servicesList, (i, obj) => {
             let serviceItemHtml = serviceItemHtmlTemplate;
+            console.log(obj)
             for (var key in obj) {
                 if (key == 'image_id') {
                     obj[key] = (obj[key] == undefined) ? 21 : obj[key];
@@ -49,7 +50,9 @@
     confirmRemoveService = (id) => {
         let conf = confirm("Tem certeza que remover cuidado?")
         if (conf) {
-            removeService(id, updateManageServicesList);
+            removeService(id, () => {
+                getServices(updateManageServicesList);
+            });
         }
     }
 </script>
